@@ -1,13 +1,14 @@
+
 import './App.css'
+import Routers from "./routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Projeto Gestão de Hábitos</h1>
-      </header>
-    </div>
-  )
+    <>
+      <Routers />
+    </>
+  );
+
 }
 
 export default App
