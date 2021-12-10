@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import api from "../services/api";
+import { toast } from "react-hot-toast";
 
 const AuthContext = createContext({});
 
@@ -11,15 +12,15 @@ const useAuth = () => {
 
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem("@ClubeDaCorrida:token")) || ""
+    JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || ""
   );
 
   const signIn = async (data) => {
-    console.log(data);
     await api.post("/sessions/", data).then((response) => {
-      console.log(response);
+      // console.log(response);
+      toast.success("Login realizado com sucesso");
       localStorage.setItem(
-        "@ClubeDaCorrida:token",
+        "@RunLikeaDev:token",
         JSON.stringify(response.data.access)
       );
     });

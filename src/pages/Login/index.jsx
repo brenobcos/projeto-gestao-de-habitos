@@ -2,9 +2,13 @@ import { useAuth } from "../../providers/AuthContext";
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useHistory, Redirect } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
     username: yup.string().required("Insira seu username"),
     password: yup.string().required("Senha Obrigatória"),
@@ -22,19 +26,21 @@ const Login = () => {
 
   const handleSignIn = (data) => {
     signIn(data).catch((error) => {
-
-        // colocar o hottoast
-
-        console.log(error)
+      toast.error("Username ou senha inválidos!");
+      console.log(error);
     });
   };
 
+  // if (localStorage.getItem("@RunLikeaDev:token")) {
+  //   return <Redirect to="/Dashboard" />;
+  // }
+
   return (
     <>
-      <button>Voltar</button>
+      <button onClick={() => history.push("/")}>Voltar</button>
 
       <div>
-        <h1>CLUBE DA CORRIDA</h1>
+        <h1>RUN LIKE A DEV</h1>
         <button>Sign in with Google</button>
         <hr />
         <form onSubmit={handleSubmit(handleSignIn)}>
@@ -61,7 +67,10 @@ const Login = () => {
           <button>Login</button>
         </form>
         <p>
-          Ainda não é registrado? <button>Crie uma conta</button>
+          Ainda não é registrado?{" "}
+          <button onClick={() => history.push("/Register")}>
+            Crie uma conta
+          </button>
         </p>
       </div>
     </>
