@@ -4,19 +4,19 @@ const Routers = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <Home />
+        {/* <Home /> */}
       </Route>
       <Route exact path="Register">
-        <Register />
+        {/* <Register /> */}
       </Route>
       <Route exact path="SignIn">
-        <SignIn />
+        {/* <SignIn /> */}
       </Route>
       <Route exact path="Dashboard">
-        <Dashboard />
+        {/* <Dashboard /> */}
       </Route>
       <Route exact path="Profile">
-        <Profile />
+        {/* <Profile /> */}
       </Route>
     </Switch>
   );

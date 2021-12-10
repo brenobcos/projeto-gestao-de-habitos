@@ -1,5 +1,3 @@
-
-import './App.css'
 import Routers from "./routes";
 
 function App() {
