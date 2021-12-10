@@ -1,3 +1,5 @@
+
+import './App.css'
 import Routers from "./routes";
 
 function App() {
@@ -6,6 +8,7 @@ function App() {
       <Routers />
     </>
   );
+
 }
 
-export default App;
+export default App
