@@ -2,13 +2,18 @@ import styled from 'styled-components'
 
 export const Container = styled.button`
   min-width: min-content;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   padding: 10px;
   height: 2.375rem;
   font-size: calc(10px + 1vh);
-  font-weight: 400;
+  font-weight: 600;
   border: none;
-  background: ${props => (props.color ? '#757BC8' : '#121212')};
-  color: ${props => (props.color ? '#121212' : '#FFF')};
+  background: ${props =>
+    props.color ? 'var(--color-primary)' : 'var(--black)'};
+  color: ${props => (props.color ? 'var(--black)' : 'var(--white)')};
   margin: 3px;
 
   :hover {

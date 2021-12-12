@@ -6,13 +6,22 @@ export const Container = styled.div`
   flex-direction: column;
 
   header {
-    height: 6rem;
+    height: fit-content;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
     background-color: var(--black);
-    padding: 0 1rem;
+    padding: 1rem;
+
+    text-align: center;
+    div {
+      margin: 0 auto;
+    }
+
+    @media screen and (min-width: 750px) {
+      flex-direction: row;
+    }
   }
 
   img {
@@ -45,6 +54,17 @@ export const Container = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 750px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+
+    button {
+      margin-left: 25px;
+    }
+  }
 `
 
 export const GlideContainer = styled.div`
