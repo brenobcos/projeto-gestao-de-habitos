@@ -1,18 +1,15 @@
 import { Toaster } from 'react-hot-toast'
-import Login from './pages/Login';
-import './App.css'
-import Routers from "./routes";
+import Home from './pages/Home'
+import GlobalStyle from './styles/global'
 
 function App() {
   return (
     <>
-     <Toaster position = "top-center" reverseOrder={false} />
-      <Login/>
-      <Routers />
+      <GlobalStyle />
+      <Toaster position="top-center" reverseOrder={false} />
+      <Home />
     </>
-
-  );
-
+  )
 }
 
 export default App
