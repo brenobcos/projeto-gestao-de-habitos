@@ -1,3 +1,4 @@
+
 import { Toaster } from 'react-hot-toast'
 import Home from './pages/Home'
 import GlobalStyle from './styles/global'
@@ -12,4 +13,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
