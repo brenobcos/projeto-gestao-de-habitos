@@ -6,12 +6,19 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
 
+import Home from "../pages/Home";
+import Register from "../pages/Regiter";
+import SignIn from "../pages/SignIn";
+import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Profile";
+
 const Routers = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <Home />
+        {/* <Home /> */}
       </Route>
+
       <Route exact path="/signup/">
         <SignUp />
       </Route>
@@ -23,6 +30,7 @@ const Routers = () => {
       </Route>
       <Route exact path="/profile/">
         <Profile />
+
       </Route>
     </Switch>
   );

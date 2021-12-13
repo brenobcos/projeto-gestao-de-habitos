@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Routers from "./routes";
 import GlobalStyle from "./styles/global";
 
+
 function App() {
   return (
     <>
