@@ -43,8 +43,6 @@ const Home = () => {
         </ButtonContainer>
       </header>
 
-      <Search />
-
       <div>
         <img src={homeIMG} alt="Running" />
       </div>
