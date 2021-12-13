@@ -1,6 +1,5 @@
 import Logo from "../../components/Logo";
 import { ButtonContainer, Container, Glide, GlideContainer } from "./styles";
-import Button from "../../components/Button";
 import { useHistory } from "react-router";
 import homeIMG from "../../assets/fotoHome.png";
 import glide1 from "../../assets/glider1.png";
@@ -9,10 +8,11 @@ import glide3 from "../../assets/glider3.png";
 import glide4 from "../../assets/glider4.png";
 
 import Footer from "../../components/footer";
-import Search from "../../components/Search";
 
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
+import ButtonMain from "../../components/ButtonMain";
+import ButtonRegister from "../../components/ButtonRegister";
 
 const contentStyle = {
   height: "90px",
@@ -34,12 +34,12 @@ const Home = () => {
       <header>
         <Logo />
         <ButtonContainer>
-          <Button onClick={() => handleNav("/login")} color={false}>
+          <ButtonRegister onClick={() => handleNav("/login")} color={false}>
             ENTRAR
-          </Button>
-          <Button onClick={() => handleNav("/signup")} color={true}>
+          </ButtonRegister>
+          <ButtonRegister onClick={() => handleNav("/signup")} color={true}>
             CADASTRAR
-          </Button>
+          </ButtonRegister>
         </ButtonContainer>
       </header>
 
