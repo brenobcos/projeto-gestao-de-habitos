@@ -9,6 +9,7 @@ import glide3 from "../../assets/glider3.png";
 import glide4 from "../../assets/glider4.png";
 
 import Footer from "../../components/footer";
+import Search from "../../components/Search";
 
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
@@ -41,6 +42,9 @@ const Home = () => {
           </Button>
         </ButtonContainer>
       </header>
+
+      <Search />
+
       <div>
         <img src={homeIMG} alt="Running" />
       </div>
