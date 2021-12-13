@@ -1,8 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
-import Register from "../pages/Regiter";
-import SignIn from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
+import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
 
@@ -13,16 +13,16 @@ const Routers = () => {
         <Home />
       </Route>
 
-      <Route exact path="Register">
-        <Register />
+      <Route exact path="/signup/">
+        <SignUp />
       </Route>
-      <Route exact path="SignIn">
-        <SignIn />
+      <Route exact path="/login/">
+        <Login />
       </Route>
-      <Route exact path="Dashboard">
+      <Route exact path="/dashboard/">
         <Dashboard />
       </Route>
-      <Route exact path="Profile">
+      <Route exact path="/profile/">
         <Profile />
       </Route>
     </Switch>
