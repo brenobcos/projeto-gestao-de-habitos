@@ -1,41 +1,44 @@
-import Logo from '../../components/Logo'
-import { ButtonContainer, Container, Glide, GlideContainer } from './styles'
-import Button from '../../components/Button'
-import { useHistory } from 'react-router'
-import homeIMG from '../../assets/fotoHome.png'
-import glide1 from '../../assets/glider1.png'
-import glide2 from '../../assets/glider2.png'
-import glide3 from '../../assets/glider3.png'
-import glide4 from '../../assets/glider4.png'
+import Logo from "../../components/Logo";
+import { ButtonContainer, Container, Glide, GlideContainer } from "./styles";
+import Button from "../../components/Button";
+import { useHistory } from "react-router";
+import homeIMG from "../../assets/fotoHome.png";
+import glide1 from "../../assets/glider1.png";
+import glide2 from "../../assets/glider2.png";
+import glide3 from "../../assets/glider3.png";
+import glide4 from "../../assets/glider4.png";
 
-import 'antd/dist/antd.css'
-import { Carousel } from 'antd'
+import Footer from "../../components/footer";
+
+import "antd/dist/antd.css";
+import { Carousel } from "antd";
 
 const contentStyle = {
-  height: '90px',
-  color: '#fff',
-  lineHeight: '90px',
-  textAlign: 'center',
-  background: '#121212'
-}
+  height: "90px",
+  color: "#fff",
+  lineHeight: "90px",
+  textAlign: "center",
+  background: "#121212",
+};
 
 const Home = () => {
 
-  const history = useHistory()
+  const history = useHistory();
 
-  const handleNav = path => {
-    return history.push(path)
-  }
+
+  const handleNav = (path) => {
+    return history.push(path);
+  };
 
   return (
     <Container>
       <header>
         <Logo />
         <ButtonContainer>
-          <Button onClick={() => handleNav('/signup')} color={false}>
+          <Button onClick={() => handleNav("/login")} color={false}>
             ENTRAR
           </Button>
-          <Button onClick={() => handleNav('/registration')} color={true}>
+          <Button onClick={() => handleNav("/signup")} color={true}>
             CADASTRAR
           </Button>
         </ButtonContainer>
@@ -90,19 +93,9 @@ const Home = () => {
           </GlideContainer>
         </Glide>
       </Carousel>
-      <footer>
-        <Logo />
-        <div>
-          <h5>Equipe de desenvolvedores </h5>
-          <p>Arthur Ticianeli como Product Owner</p>
-          <p>Breno Carlos como Tech Leader</p>
-          <p>Lucas Reiser como Scrum Master</p>
-          <p>Marcos Vinicius como Quality Assurence</p>
-          <p>Mateus Guimarães como Quality Assurence</p>
-        </div>
-      </footer>
+      <Footer />
     </Container>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
