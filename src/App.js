@@ -1,12 +1,17 @@
-import './App.css';
+import { Toaster } from "react-hot-toast";
+
+import Routers from "./routes";
+
+import GlobalStyle from "./styles/global";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Projeto Gestão de Hábitos</h1>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Toaster position="top-center" reverseOrder={false} />
+      <Routers />
+    </>
   );
 }
 
