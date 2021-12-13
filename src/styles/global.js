@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const Global = createGlobalStyle`
+
+@import "antd/dist/antd.css";
+
     * {
         margin: 0;
         padding: 0;
@@ -11,9 +14,9 @@ export const Global = createGlobalStyle`
         }
     }
 
-    ` 
+    `;
 
-    /* :root {
+/* :root {
         --color-primary: ;
         --color-primary-strong: ;
         --color-secondary: ;
