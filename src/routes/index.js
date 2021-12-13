@@ -1,5 +1,11 @@
 import { Switch, Route } from "react-router-dom";
 
+import Home from "../pages/Home";
+import Register from "../pages/Regiter";
+import SignIn from "../pages/SignIn";
+import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Profile";
+
 const Routers = () => {
   return (
     <Switch>
