@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 
+@import "antd/dist/antd.css";
+
 export default createGlobalStyle`
+
     * {
         box-sizing: border-box;
         margin: 0;
@@ -9,6 +12,32 @@ export default createGlobalStyle`
         outline: 0;
         ::-webkit-scrollbar {
         display: none;
+
+        }
+    }
+
+    `;
+
+/* :root {
+        --color-primary: ;
+        --color-primary-strong: ;
+        --color-secondary: ;
+        --color-secondary-light: ;
+        --color-secondary-strong: ;
+        --gray-100: ;
+        --gray-50: ;
+        --gray-20: ;
+        --gray-0: ;
+        --white: ;
+        --black: ;
+        --negative: ;
+        --warning: ;
+        --success: ;
+        --information: ;
+    }
+    body {
+        font-family: ;
+
     }
     
     :root {
