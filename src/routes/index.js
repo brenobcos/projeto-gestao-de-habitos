@@ -1,4 +1,5 @@
-import { Switch, Route } from "react-router-dom";
+/*import { Switch, Route } from 'react-router-dom'
+import Home from '../pages/Home'
 
 import Home from "../pages/Home";
 import Register from "../pages/Regiter";
@@ -12,6 +13,7 @@ const Routers = () => {
       <Route exact path="/">
         <Home />
       </Route>
+      {/*
       <Route exact path="Register">
         <Register />
       </Route>
@@ -24,8 +26,12 @@ const Routers = () => {
       <Route exact path="Profile">
         <Profile />
       </Route>
+    }
     </Switch>
-  );
-};
-
-export default Routers;
+    )
+  }
+  
+  export default Routers
+  
+  
+  */
