@@ -22,9 +22,7 @@ const contentStyle = {
 };
 
 const Home = () => {
-
   const history = useHistory();
-
 
   const handleNav = (path) => {
     return history.push(path);
