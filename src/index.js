@@ -3,11 +3,16 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
+import Providers from './providers/index';
+
 ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
+
+  <React.StrictMode>
+    <BrowserRouter>
+      <Providers>
       <App />
-    </React.StrictMode>
-  </BrowserRouter>,
+      </Providers>
+    </BrowserRouter>
+   </React.StrictMode>,
   document.getElementById("root")
 );
