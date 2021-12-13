@@ -1,4 +1,11 @@
-import { Switch, Route } from "react-router-dom";
+/*import { Switch, Route } from 'react-router-dom'
+import Home from '../pages/Home'
+
+import Home from "../pages/Home";
+import Register from "../pages/Regiter";
+import SignIn from "../pages/SignIn";
+import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Profile";
 
 import Home from "../pages/Home";
 import Register from "../pages/Regiter";
@@ -10,22 +17,27 @@ const Routers = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <Home />
+        {/* <Home /> */}
       </Route>
+      {/*
       <Route exact path="Register">
-        <Register />
+        {/* <Register /> */}
       </Route>
       <Route exact path="SignIn">
-        <SignIn />
+        {/* <SignIn /> */}
       </Route>
       <Route exact path="Dashboard">
-        <Dashboard />
+        {/* <Dashboard /> */}
       </Route>
       <Route exact path="Profile">
-        <Profile />
+        {/* <Profile /> */}
       </Route>
+    }
     </Switch>
-  );
-};
-
-export default Routers;
+    )
+  }
+  
+  export default Routers
+  
+  
+  */
