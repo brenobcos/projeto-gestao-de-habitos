@@ -26,14 +26,19 @@ const Goals = () => {
     formState: { errors }
   } = useForm({ resolver: yupResolver(schemaGoal) })
 
-  const addGoal = ({ title, category, difficulty, frequency }) => {
+  const addGoal = ({
+    title,
+    how_much_achieved,
+    difficulty,
+    achieved,
+    group
+  }) => {
     const newGoal = {
       title,
-      category,
+      how_much_achieved,
       difficulty,
-      frequency,
-      how_much_achieved: 0,
-      user: usuario
+      achieved,
+      group
     }
 
     api
