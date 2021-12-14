@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Dashboard = () => {
   //TOKEN
@@ -43,6 +43,7 @@ const Dashboard = () => {
       })
       .then((response) => {
         console.log(response.data);
+        getHabits();
       })
       .catch((err) => console.log(err));
   };
@@ -52,18 +53,40 @@ const Dashboard = () => {
   const [habits, setHabits] = useState([]);
   console.log(habits);
 
-  const showHabit = () => {
+  const getHabits = useCallback(() => {
     api
       .get("/habits/personal/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        setHabits(response.data);
-      })
+      .then((response) => setHabits(response.data))
       .catch((err) => console.log(err));
-  };
+  }, [setHabits, token]);
+
+  useEffect(() => {
+    if (habits.length === 0) {
+      getHabits();
+    }
+  }, [habits.length, getHabits]);
+
+  //HÁBITOS - DELETE
+
+  function removeHabit(id) {
+    api
+      .delete(`/habits/${id}/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        getHabits();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   //HTML
   return (
@@ -78,6 +101,14 @@ const Dashboard = () => {
         <input placeholder="Frequência" {...register("frequency")} />
         <button type="submit">Adicionar</button>
       </form>
+      <div>
+        {habits.map((habit) => (
+          <div key={habit.id}>
+            <div>{habit.title}</div>
+            <button onClick={() => removeHabit(habit.id)}>Deletar</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
