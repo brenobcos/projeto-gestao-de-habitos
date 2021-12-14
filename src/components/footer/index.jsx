@@ -1,9 +1,10 @@
+import Logo from "../Logo";
 import { Container, Detalhe, Titulo } from "./style";
 
 function Footer() {
   return (
     <Container>
-      <div style={{ background: "white" }}>LOGO</div>
+      <Logo large />
       <div>
         <Titulo>Equipe de desenvolvedores</Titulo>
         <Detalhe>

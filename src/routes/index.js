@@ -3,7 +3,7 @@ import Dashboard from "../pages/Dashboard";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Profile from "../pages/Profile";
-import Registration from "../pages/Registration";
+import SignUp from "../pages/SignUp";
 
 const Routers = () => {
   return (
@@ -11,21 +11,20 @@ const Routers = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/registration">
-        <Registration />
+      <Route exact path="/signup/">
+        <SignUp />
       </Route>
-      <Route exact path="/login">
+      <Route exact path="/login/">
         <Login />
       </Route>
-      <Route exact path="/dashboard">
+      <Route exact path="/dashboard/">
         <Dashboard />
       </Route>
-      <Route exact path="/profile">
+      <Route exact path="/profile/">
         <Profile />
       </Route>
     </Switch>
-    )
-  }
-  
-  export default Routers
-  
+  );
+};
+
+export default Routers;

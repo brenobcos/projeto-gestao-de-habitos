@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -19,38 +20,53 @@ import glide1 from '../../assets/glider1.png'
 import glide2 from '../../assets/glider2.png'
 import glide3 from '../../assets/glider3.png'
 import glide4 from '../../assets/glider4.png'
+=======
+import Logo from "../../components/Logo";
+import { ButtonContainer, Container, Glide, GlideContainer } from "./styles";
+import { useHistory } from "react-router";
+import homeIMG from "../../assets/fotoHome.png";
+import glide1 from "../../assets/glider1.png";
+import glide2 from "../../assets/glider2.png";
+import glide3 from "../../assets/glider3.png";
+import glide4 from "../../assets/glider4.png";
+>>>>>>> 49661e8178060bcbe5ad839f042f64de9ff5b136
 
-import 'antd/dist/antd.css'
-import { Carousel } from 'antd'
+import Footer from "../../components/footer";
+
+import "antd/dist/antd.css";
+import { Carousel } from "antd";
+import ButtonMain from "../../components/ButtonMain";
+import ButtonRegister from "../../components/ButtonRegister";
 
 const contentStyle = {
-  height: '90px',
-  color: '#fff',
-  lineHeight: '90px',
-  textAlign: 'center',
-  background: '#121212'
-}
+  height: "90px",
+  color: "#fff",
+  lineHeight: "90px",
+  textAlign: "center",
+  background: "#121212",
+};
 
 const Home = () => {
-  const history = useHistory()
+  const history = useHistory();
 
-  const handleNav = path => {
-    return history.push(path)
-  }
+  const handleNav = (path) => {
+    return history.push(path);
+  };
 
   return (
     <Container>
       <header>
         <Logo />
         <ButtonContainer>
-          <Button onClick={() => handleNav('/signup')} color={false}>
+          <ButtonRegister onClick={() => handleNav("/login")} color={false}>
             ENTRAR
-          </Button>
-          <Button onClick={() => handleNav('/registration')} color={true}>
+          </ButtonRegister>
+          <ButtonRegister onClick={() => handleNav("/signup")} color={true}>
             CADASTRAR
-          </Button>
+          </ButtonRegister>
         </ButtonContainer>
       </header>
+
       <div>
         <img src={homeIMG} alt="Running" />
       </div>
@@ -101,20 +117,15 @@ const Home = () => {
           </GlideContainer>
         </Glide>
       </Carousel>
-      <footer>
-        <Logo />
-        <div>
-          <h5>Equipe de desenvolvedores </h5>
-          <p>Arthur Ticianeli como Product Owner</p>
-          <p>Breno Carlos como Tech Leader</p>
-          <p>Lucas Reiser como Scrum Master</p>
-          <p>Marcos Vinicius como Quality Assurence</p>
-          <p>Mateus Guimarães como Quality Assurence</p>
-        </div>
-      </footer>
+      <Footer />
     </Container>
+<<<<<<< HEAD
   )
 }
 >>>>>>> development
+=======
+  );
+};
+>>>>>>> 49661e8178060bcbe5ad839f042f64de9ff5b136
 
-export default Home
+export default Home;
