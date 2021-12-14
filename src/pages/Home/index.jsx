@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Logo from "../../components/Logo";
 import { ButtonContainer, Container, Glide, GlideContainer } from "./styles";
 import { useHistory } from "react-router";
@@ -7,28 +6,12 @@ import glide1 from "../../assets/glider1.png";
 import glide2 from "../../assets/glider2.png";
 import glide3 from "../../assets/glider3.png";
 import glide4 from "../../assets/glider4.png";
-=======
-
-import Logo from '../../components/Logo'
-import { ButtonContainer, Container, Glide, GlideContainer } from './styles'
-import { useHistory } from 'react-router'
-import homeIMG from '../../assets/fotoHome.png'
-import glide1 from '../../assets/glider1.png'
-import glide2 from '../../assets/glider2.png'
-import glide3 from '../../assets/glider3.png'
-import glide4 from '../../assets/glider4.png'
->>>>>>> e876b98cbc0a9396f3e8aec85e4b1505ceacb1ef
 
 import Footer from "../../components/footer";
 
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
-<<<<<<< HEAD
-=======
 // import ButtonMain from "../../components/ButtonMain";
-import ButtonRegister from "../../components/ButtonRegister";
->>>>>>> e876b98cbc0a9396f3e8aec85e4b1505ceacb1ef
-
 import ButtonRegister from "../../components/ButtonRegister";
 
 const contentStyle = {
@@ -51,24 +34,10 @@ const Home = () => {
       <header>
         <Logo />
         <ButtonContainer>
-<<<<<<< HEAD
           <ButtonRegister onClick={() => handleNav("/login")} color={false}>
             ENTRAR
           </ButtonRegister>
           <ButtonRegister onClick={() => handleNav("/signup")} color={true}>
-=======
-<<<<<<< HEAD
-          <Button onClick={() => handleNav("/login")} color={false}>
-            ENTRAR
-          </Button>
-          <Button onClick={() => handleNav("/signup")} color={true}>
-=======
-          <ButtonRegister onClick={() => handleNav("/login")} color={false}>
-            ENTRAR
-          </ButtonRegister>
-          <ButtonRegister onClick={() => handleNav("/signup")} color={true}>
->>>>>>> e876b98cbc0a9396f3e8aec85e4b1505ceacb1ef
->>>>>>> development
             CADASTRAR
           </ButtonRegister>
         </ButtonContainer>
@@ -126,16 +95,7 @@ const Home = () => {
       </Carousel>
       <Footer />
     </Container>
-<<<<<<< HEAD
   );
 };
 
-=======
-
-  )
-}
-
-
-
->>>>>>> e876b98cbc0a9396f3e8aec85e4b1505ceacb1ef
 export default Home;
