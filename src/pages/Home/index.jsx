@@ -45,7 +45,7 @@ const Home = () => {
 
       <Carousel autoplay>
         <Glide>
-          <h3 style={contentStyle}>DE UM "RUN" NOS OBJETIVOS</h3>
+          <h3 style={contentStyle}></h3>
           <GlideContainer>
             <img src={glide1} alt="" />
             <h4>Crie atividades a serem cumpridas</h4>
@@ -56,7 +56,7 @@ const Home = () => {
           </GlideContainer>
         </Glide>
         <Glide>
-          <h3 style={contentStyle}>NÃO FIQUE SENTADO</h3>
+          <h3 style={contentStyle}></h3>
           <GlideContainer>
             <img src={glide2} alt="" />
             <h4>Desenvolva hábitos saudáveis</h4>
@@ -67,7 +67,7 @@ const Home = () => {
           </GlideContainer>
         </Glide>
         <Glide>
-          <h3 style={contentStyle}>CONVIDE OS AMIGOS</h3>
+          <h3 style={contentStyle}></h3>
           <GlideContainer>
             <img src={glide3} alt="" />
             <h4>Participe de grupos de corrida</h4>
@@ -78,7 +78,7 @@ const Home = () => {
           </GlideContainer>
         </Glide>
         <Glide>
-          <h3 style={contentStyle}>ACOMPANHE SEU PROGRESSO</h3>
+          <h3 style={contentStyle}></h3>
           <GlideContainer>
             <img src={glide4} alt="" />
             <h4>Defina metas para o seu grupo</h4>
