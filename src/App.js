@@ -8,7 +8,6 @@ function App() {
       <Routers />
       <GlobalStyle />
       <Toaster position="top-center" reverseOrder={false} />
-      <Routers />
     </>
   );
 }
