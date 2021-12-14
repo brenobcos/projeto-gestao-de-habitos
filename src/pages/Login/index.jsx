@@ -68,10 +68,12 @@ const Login = () => {
         </form>
         <p>
           Ainda não é registrado?{" "}
-          <button onClick={() => history.push("/Register")}>
+          <button onClick={() => history.push("/registration")}>
             Crie uma conta
           </button>
         </p>
+
+        {/* Redirecionar o usuário para o dashboard (history.push)*/}
       </div>
     </>
   );
