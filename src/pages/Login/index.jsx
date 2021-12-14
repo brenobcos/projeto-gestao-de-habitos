@@ -6,6 +6,8 @@ import { toast } from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory, Redirect } from "react-router-dom";
 
+import Logo from "../../components/Logo";
+
 const Login = () => {
   const history = useHistory();
 
@@ -40,7 +42,7 @@ const Login = () => {
       <button onClick={() => history.push("/")}>Voltar</button>
 
       <div>
-        <h1>RUN LIKE A DEV</h1>
+        <Logo white />
         <button>Sign in with Google</button>
         <hr />
         <form onSubmit={handleSubmit(handleSignIn)}>
@@ -68,10 +70,12 @@ const Login = () => {
         </form>
         <p>
           Ainda não é registrado?{" "}
-          <button onClick={() => history.push("/Register")}>
+          <button onClick={() => history.push("/registration")}>
             Crie uma conta
           </button>
         </p>
+
+        {/* Redirecionar o usuário para o dashboard (history.push)*/}
       </div>
     </>
   );

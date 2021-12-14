@@ -1,6 +1,9 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
+
+// @import "antd/dist/antd.css";
 
 export default createGlobalStyle`
+
     * {
         box-sizing: border-box;
         margin: 0;
@@ -9,13 +12,22 @@ export default createGlobalStyle`
         outline: 0;
         ::-webkit-scrollbar {
         display: none;
+
+        }
     }
-    
-    :root {
-        --color-primary: #757BC8 ;
-        --white: #FFF ;
-        --black: #121212; 
+
+body {
+    font-family: ;
+
 }
+
+:root {
+    --color-primary: #757BC8 ;
+    --white: #FFF ;
+    --black: #121212; 
+}
+`;
+/* 
     
     /*
     --color-primary-strong: ;
@@ -31,38 +43,37 @@ export default createGlobalStyle`
     --success: ;
     --information: ;
     */
-}
-body {
-    font-family: 'Roboto', sans-serif;
-}
-`
-/*
-    h1 {
-        
-    }
-    h2 {
-        
-    }
-    h3 {
-        
-    }
-    span {
-        
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-        font-family: ;
-    }
-    button {
 
+// body {
+//     font-family: 'Roboto', sans-serif;
+// }
+// `;
+// /*
+//     h1 {
 
-        cursor: pointer;
-    }
-    input {
+//     }
+//     h2 {
 
-    }
-    a {
+//     }
+//     h3 {
 
-        text-decoration: none;
-    }
-`; */
+//     }
+//     span {
+
+//     }
+
+//     h1, h2, h3, h4, h5, h6 {
+//         font-family: ;
+//     }
+//     button {
+
+//         cursor: pointer;
+//     }
+//     input {
+
+//     }
+//     a {
+
+//         text-decoration: none;
+//     }
+// `;

@@ -2,9 +2,8 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
-import { Link } from "react-router-dom";
 
-const Registration = () => {
+const SignUp = () => {
   const formSchema = yup.object().shape({
     username: yup.string().required("Nome de usuario obrigatório"),
     email: yup.string().required("E-mail obrigatório").email("E-mail Invalido"),
@@ -48,11 +47,8 @@ const Registration = () => {
         {errors.confirmPassword?.message}
         <button type="submit">Cadastrar</button>
       </form>
-
-      {/* Redirecionar o usuário para a página de login (history.push)*/}
-      <Link to="login">Login</Link>
     </div>
   );
 };
 
-export default Registration;
+export default SignUp;

@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
 
   const signIn = async (data) => {
     await api.post("/sessions/", data).then((response) => {
-      // console.log(response);
+      console.log(response);
       toast.success("Login realizado com sucesso");
       localStorage.setItem(
         "@RunLikeaDev:token",
