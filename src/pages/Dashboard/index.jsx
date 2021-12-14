@@ -11,8 +11,10 @@ const Dashboard = () => {
   const decoded = jwt_decode(token);
   const usuario = decoded.user_id;
 
+  console.log(decoded.user_id);
+
   // HÁBITOS - POST
-  const formSchema = yup.object().shape({
+  const schemaHabit = yup.object().shape({
     title: yup.string().required("Obrigatório"),
     category: yup.string().required("Obrigatório"),
     difficulty: yup.string().required("Obrigatório"),
@@ -23,7 +25,7 @@ const Dashboard = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(formSchema) });
+  } = useForm({ resolver: yupResolver(schemaHabit) });
 
   const addHabit = ({ title, category, difficulty, frequency }) => {
     const newUser = {
@@ -49,7 +51,6 @@ const Dashboard = () => {
   };
 
   //HÁBITOS - GET
-
   const [habits, setHabits] = useState([]);
   console.log(habits);
 
@@ -71,7 +72,6 @@ const Dashboard = () => {
   }, [habits.length, getHabits]);
 
   //HÁBITOS - DELETE
-
   function removeHabit(id) {
     api
       .delete(`/habits/${id}/`, {
@@ -87,6 +87,22 @@ const Dashboard = () => {
         console.log(err);
       });
   }
+
+  //ATIVIDADES - POST
+  // const schemaAcitivty = yup.object().shape({
+  //   title: yup.string().required("Obrigatório"),
+  //   category: yup.string().required("Obrigatório"),
+  //   difficulty: yup.string().required("Obrigatório"),
+  //   frequency: yup.string().required("Obrigatório"),
+  // });
+
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({ resolver: yupResolver(schemaAcitivty) });
+
+  // const addActivity = () => {};
 
   //HTML
   return (
@@ -109,6 +125,13 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
+
+      {/* <form onSubmit={handleSubmit(addActivity)}>
+        {errors.username?.message}}
+        <input placeholder="Atividade" {...register("title")} />
+
+        <button type="submit">Adicionar</button>
+      </form>  */}
     </div>
   );
 };
