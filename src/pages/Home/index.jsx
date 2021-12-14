@@ -1,41 +1,18 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
 
-const Home = () => {
-  return (
-    <div>
-      <div>Home</div>
-      <Link to="/login">Login</Link>
-    </div>
-  );
-};
-=======
 import Logo from '../../components/Logo'
 import { ButtonContainer, Container, Glide, GlideContainer } from './styles'
-import Button from '../../components/Button'
 import { useHistory } from 'react-router'
 import homeIMG from '../../assets/fotoHome.png'
 import glide1 from '../../assets/glider1.png'
 import glide2 from '../../assets/glider2.png'
 import glide3 from '../../assets/glider3.png'
 import glide4 from '../../assets/glider4.png'
-=======
-import Logo from "../../components/Logo";
-import { ButtonContainer, Container, Glide, GlideContainer } from "./styles";
-import { useHistory } from "react-router";
-import homeIMG from "../../assets/fotoHome.png";
-import glide1 from "../../assets/glider1.png";
-import glide2 from "../../assets/glider2.png";
-import glide3 from "../../assets/glider3.png";
-import glide4 from "../../assets/glider4.png";
->>>>>>> 49661e8178060bcbe5ad839f042f64de9ff5b136
 
 import Footer from "../../components/footer";
 
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
-import ButtonMain from "../../components/ButtonMain";
+// import ButtonMain from "../../components/ButtonMain";
 import ButtonRegister from "../../components/ButtonRegister";
 
 const contentStyle = {
@@ -119,13 +96,10 @@ const Home = () => {
       </Carousel>
       <Footer />
     </Container>
-<<<<<<< HEAD
+
   )
 }
->>>>>>> development
-=======
-  );
-};
->>>>>>> 49661e8178060bcbe5ad839f042f64de9ff5b136
+
+
 
 export default Home;
