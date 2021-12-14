@@ -11,7 +11,7 @@ import Footer from "../../components/footer";
 
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
-import ButtonMain from "../../components/ButtonMain";
+
 import ButtonRegister from "../../components/ButtonRegister";
 
 const contentStyle = {
