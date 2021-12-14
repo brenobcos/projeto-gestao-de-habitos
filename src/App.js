@@ -5,6 +5,7 @@ import GlobalStyle from "./styles/global";
 function App() {
   return (
     <>
+      <Routers />
       <GlobalStyle />
       <Toaster position="top-center" reverseOrder={false} />
       <Routers />
