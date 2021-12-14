@@ -24,7 +24,8 @@ const Routers = () => {
         <Profile />
       </Route>
     </Switch>
-  );
-};
-
-export default Routers;
+    )
+  }
+  
+  export default Routers
+  

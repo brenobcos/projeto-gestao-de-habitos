@@ -1,11 +1,14 @@
 import { Toaster } from "react-hot-toast";
 import Routers from "./routes";
 
+import GlobalStyle from "./styles/global";
+
 function App() {
   return (
     <>
-      <Toaster position="top-center" reverseOrder={false} />
       <Routers />
+      <GlobalStyle />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 }
