@@ -6,6 +6,7 @@ const Groups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
 
   const [groups, setHabits] = useState([]);
+  const [filterGroups, setFilterGroups] = useState("");
 
   const getGroups = useCallback(() => {
     api
@@ -24,15 +25,21 @@ const Groups = () => {
     }
   }, [groups.length, getGroups]);
 
+  const groupsFiltered = groups.filter((item) =>
+    item.name.toLowerCase().includes(filterGroups.toLowerCase())
+  );
+
   return (
     <div>
       <h1>Meus Grupos</h1>
-        <form>
-            <Search />
-            <button>Procurar</button>
-        </form>
+      
+        <Search
+          value={filterGroups}
+          onChange={(e) => setFilterGroups(e.target.value)}
+          placeholder="Digite o nome do grupo"
+        />
 
-      {groups.map((groups) => (
+      {groupsFiltered.map((groups) => (
         <div key={groups.id}>
           <h2>Grupo:{groups.name}</h2>
           <h3>Descrição: {groups.description}</h3>
