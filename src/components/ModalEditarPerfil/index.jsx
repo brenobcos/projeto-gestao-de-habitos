@@ -1,64 +1,56 @@
-// pegar o id do usuario armazenado
-// get na api das informacoes
-// exibir as informacoes nos inputs
-// alterar as informacoes que o usuario digitar na api
-
-import jwt_decode from "jwt-decode";
-import api from "../../services/api";
-
 import { useState } from "react";
 import { Button, Modal, Form, Input } from "antd";
+import api from "../../services/api";
 
-function ModalEditarPerfil() {
-  const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
-  const decoded = jwt_decode(token);
-  const usuario = decoded.user_id;
+import { toast } from "react-hot-toast";
 
+function ModalEditarPerfil({ user }) {
+  const { username, email, id } = user;
+
+  // MODAL
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
+  // PATCH
   const onFinish = (data) => {
-    console.log("Success:", data);
-    // api.patch(`/user/${usuario}`, data).then((response) => {
-    //   console.log(response);
-    //   toast.success("Alteração realizada com sucesso");
-    // });
+    api
+      .patch(`/users/${user.id}/`, data, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then(() => {
+        toast.success("Dados atualizados com sucesso!");
+        setTimeout(() => {
+          setIsModalVisible(false);
+        }, 2500);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <>
-      <Button onClick={showModal}>+</Button>
+      <Button onClick={showModal}>Perfil</Button>
+
       <Modal
         title="Alterar Perfil"
         visible={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <Form className="form" onFinish={onFinish}>
-          <Form.Item
-            name="username"
-            label="Nome"
-            initialValue="Nome do cidadao"
-          >
+          <Form.Item name="username" label="Nome" initialValue={username}>
             <Input />
           </Form.Item>
 
-          <Form.Item
-            name="email"
-            label="E-mail"
-            initialValue="Email do cidadao"
-          >
+          <Form.Item name="email" label="E-mail" initialValue={email}>
             <Input type="email" />
           </Form.Item>
 
