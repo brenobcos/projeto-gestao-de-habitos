@@ -30,7 +30,7 @@ function ModalEditarPerfil({ user }) {
         toast.success("Dados atualizados com sucesso!");
         setTimeout(() => {
           setIsModalVisible(false);
-        }, 2500);
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };

@@ -11,7 +11,7 @@ const style = {
 
   background: "var(--black)",
 
-  padding: "5px 5vw",
+  padding: "10px 10vw",
 };
 
 function NavigationBar({ user }) {

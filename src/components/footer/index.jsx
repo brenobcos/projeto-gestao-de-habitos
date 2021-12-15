@@ -4,7 +4,7 @@ import { Container, Detalhe, Titulo } from "./style";
 function Footer() {
   return (
     <Container>
-      <Logo large />
+      <Logo />
       <div>
         <Titulo>Equipe de desenvolvedores</Titulo>
         <Detalhe>
