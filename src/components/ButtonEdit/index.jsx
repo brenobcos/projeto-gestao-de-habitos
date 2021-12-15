@@ -12,6 +12,8 @@ function ButtonEdit({ onClick }) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+
+          cursor: "pointer",
         }}
         onClick={onClick}
       >
