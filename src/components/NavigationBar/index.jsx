@@ -1,3 +1,5 @@
+import { Button } from "antd";
+import { useHistory } from "react-router-dom";
 import Logo from "../Logo";
 import ModalEditarPerfil from "../ModalEditarPerfil";
 
@@ -15,10 +17,17 @@ const style = {
 };
 
 function NavigationBar({ user }) {
+  const history = useHistory();
+
+  function Logout() {
+    localStorage.clear();
+    history.push("/");
+  }
   return (
     <div style={style}>
       <Logo />
       <ModalEditarPerfil user={user} />
+      <Button onClick={Logout}>Sair</Button>
     </div>
   );
 }

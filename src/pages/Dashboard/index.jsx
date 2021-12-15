@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import NavigationBar from "../../components/NavigationBar";
 import Footer from "../../components/footer";
 import Goals from "../../components/ModalGoals";
+import ModalGroups from "../../components/ModalGrupos";
+import ContainerGroups from "../../components/ContainerGrupos";
 
 const Dashboard = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -23,7 +25,7 @@ const Dashboard = () => {
         setUserLogged(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   const user = { token, decoded, id, ...userLogged };
 
@@ -71,13 +73,7 @@ const Dashboard = () => {
         </div>
         <br></br>
         <div>
-          <div>Meus grupos</div>
-          <div>Grupo1</div>
-          <div>Grupo2</div>
-          <div>Grupo3</div>
-          <div>Grupo4</div>
-          <div>Grupo5</div>
-          <div>Grupo6</div>
+          <ContainerGroups />
         </div>
       </div>
       <br></br>
@@ -101,6 +97,9 @@ const Dashboard = () => {
       <br></br>
       Metas
       <Goals />
+      <br></br>
+      Grupos
+      <ModalGroups />
       <br></br>
       <Footer />
     </div>

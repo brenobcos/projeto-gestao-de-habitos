@@ -22,6 +22,7 @@ module.exports = {
               "@btn-font-weight": "900",
               "@btn-primary-color": "#121212",
               "@btn-default-bg": "#757BC8",
+              "@input-border-color": "#121212",
             },
             javascriptEnabled: true,
           },

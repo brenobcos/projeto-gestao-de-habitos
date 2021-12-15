@@ -1,0 +1,12 @@
+div .ant-list-split .ant-list-item {
+  color: var(--white);
+  border-bottom: 0;
+}
+
+div .ant-pagination-item a {
+  color: var(--white);
+}
+
+.ant-pagination-item-active a {
+  color: #757bc8;
+}
