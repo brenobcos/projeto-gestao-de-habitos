@@ -8,8 +8,10 @@ import { useState, useEffect } from "react";
 import NavigationBar from "../../components/NavigationBar";
 import Footer from "../../components/footer";
 import Goals from "../../components/ModalGoals";
+import Groups from "../../components/Groups";
 import ModalGroups from "../../components/ModalGrupos";
 import ContainerGroups from "../../components/ContainerGrupos";
+
 
 const Dashboard = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -88,6 +90,7 @@ const Dashboard = () => {
       </div>
       <br></br>
       -------------------transformar em modais-----------
+      <Groups />
       <br></br>
       Habitos
       <Habits />
