@@ -5,6 +5,9 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useCallback, useEffect, useState } from 'react'
 import Goals from '../../components/Goals'
+import { Button } from 'antd'
+import Inputs from '../../components/Inputs'
+import ModalEditarPerfil from '../../components/ModalEditarPerfil'
 
 const Dashboard = () => {
   //TOKEN
@@ -109,15 +112,28 @@ const Dashboard = () => {
   return (
     <div>
       <div>Dashboard</div>
-      <br></br>
+
       <form onSubmit={handleSubmit(addHabit)}>
         {/* {errors.username?.message} */}
-        <input placeholder="Hábito" {...register('title')} />
-        <input placeholder="Categoria" {...register('category')} />
-        <input placeholder="Dificuldade" {...register('difficulty')} />
-        <input placeholder="Frequência" {...register('frequency')} />
-        <button type="submit">Adicionar</button>
+        <Inputs text="Título do Hábito" label="Título" {...register('title')} />
+        <Inputs
+          text="Defina uma categoria"
+          label="Categoria"
+          {...register('category')}
+        />
+        <Inputs
+          text="Defina uma dificuldade"
+          label="Dificuldade"
+          {...register('difficulty')}
+        />
+        <Inputs
+          text="Defina uma frequência"
+          label="Frequência"
+          {...register('frequency')}
+        />
+        <Button type="submit">Adicionar</Button>
       </form>
+
       <div>
         {habits.map(habit => (
           <div key={habit.id}>
@@ -128,6 +144,14 @@ const Dashboard = () => {
       </div>
 
       <Goals />
+      {/* <form onSubmit={handleSubmit(addActivity)}>
+        {errors.username?.message}}
+        <input placeholder="Atividade" {...register("title")} />
+
+        <button type="submit">Adicionar</button>
+      </form>  */}
+
+      <ModalEditarPerfil />
     </div>
   )
 }
