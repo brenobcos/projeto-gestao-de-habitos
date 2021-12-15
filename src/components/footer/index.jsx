@@ -10,8 +10,8 @@ function Footer() {
         <Detalhe>
           <p>Arthur Ticianeli como Product Owner</p>
           <p>Marcos Vinicius como Quality Assurence </p>
-          <p>Mateus Guimarães como Quality</p>
-          <p>Assurence Breno Carlos como Tech Leader</p>
+          <p>Mateus Guimarães como Quality Assurence</p>
+          <p>Breno Carlos como Tech Leader</p>
           <p>Lucas Reiser como Scrum Master</p>
         </Detalhe>
       </div>
