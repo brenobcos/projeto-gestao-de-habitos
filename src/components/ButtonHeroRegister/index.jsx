@@ -1,4 +1,4 @@
-import { Button } from "./style";
+import { Button } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 
 function ButtonHeroRegister() {

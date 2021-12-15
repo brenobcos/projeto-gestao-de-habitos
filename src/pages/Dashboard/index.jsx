@@ -4,14 +4,15 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useCallback, useEffect, useState } from "react";
+import ModalEditarPerfil from "../../components/ModalEditarPerfil";
+import Inputs from "../../components/Inputs";
+import { Button } from "antd";
 
 const Dashboard = () => {
   //TOKEN
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
   const decoded = jwt_decode(token);
   const usuario = decoded.user_id;
-
-  console.log(decoded.user_id);
 
   // HÁBITOS - POST
   const schemaHabit = yup.object().shape({
@@ -108,15 +109,28 @@ const Dashboard = () => {
   return (
     <div>
       <div>Dashboard</div>
-      <br></br>
+
       <form onSubmit={handleSubmit(addHabit)}>
         {/* {errors.username?.message} */}
-        <input placeholder="Hábito" {...register("title")} />
-        <input placeholder="Categoria" {...register("category")} />
-        <input placeholder="Dificuldade" {...register("difficulty")} />
-        <input placeholder="Frequência" {...register("frequency")} />
-        <button type="submit">Adicionar</button>
+        <Inputs text="Título do Hábito" label="Título" {...register("title")} />
+        <Inputs
+          text="Defina uma categoria"
+          label="Categoria"
+          {...register("category")}
+        />
+        <Inputs
+          text="Defina uma dificuldade"
+          label="Dificuldade"
+          {...register("difficulty")}
+        />
+        <Inputs
+          text="Defina uma frequência"
+          label="Frequência"
+          {...register("frequency")}
+        />
+        <Button type="submit">Adicionar</Button>
       </form>
+
       <div>
         {habits.map((habit) => (
           <div key={habit.id}>
@@ -125,13 +139,14 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
-
       {/* <form onSubmit={handleSubmit(addActivity)}>
         {errors.username?.message}}
         <input placeholder="Atividade" {...register("title")} />
 
         <button type="submit">Adicionar</button>
       </form>  */}
+
+      <ModalEditarPerfil />
     </div>
   );
 };
