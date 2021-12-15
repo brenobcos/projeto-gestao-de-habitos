@@ -1,12 +1,11 @@
-
-import Logo from '../../components/Logo'
-import { ButtonContainer, Container, Glide, GlideContainer } from './styles'
-import { useHistory } from 'react-router'
-import homeIMG from '../../assets/fotoHome.png'
-import glide1 from '../../assets/glider1.png'
-import glide2 from '../../assets/glider2.png'
-import glide3 from '../../assets/glider3.png'
-import glide4 from '../../assets/glider4.png'
+import Logo from "../../components/Logo";
+import { ButtonContainer, Container, Glide, GlideContainer } from "./styles";
+import { useHistory } from "react-router";
+import homeIMG from "../../assets/fotoHome.png";
+import glide1 from "../../assets/glider1.png";
+import glide2 from "../../assets/glider2.png";
+import glide3 from "../../assets/glider3.png";
+import glide4 from "../../assets/glider4.png";
 
 import Footer from "../../components/footer";
 
@@ -96,10 +95,7 @@ const Home = () => {
       </Carousel>
       <Footer />
     </Container>
-
-  )
-}
-
-
+  );
+};
 
 export default Home;
