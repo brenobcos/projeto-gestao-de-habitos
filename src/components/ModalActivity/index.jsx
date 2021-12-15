@@ -1,5 +1,4 @@
 import api from "../../services/api";
-import jwt_decode from "jwt-decode";
 
 import { useCallback, useEffect, useState } from "react";
 import {
@@ -16,8 +15,6 @@ import {
 const Activity = () => {
   //TOKEN
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
-  const decoded = jwt_decode(token);
-  const usuario = decoded.user_id;
 
   // MODAL
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -136,16 +133,6 @@ const Activity = () => {
             </List.Item>
           )}
         />
-
-        {/* <div>
-          {activity.map((act) => (
-            <div key={act.id}>
-              <div>{act.title}</div>
-              <div>{act.realization_time.slice(0, 10)}</div>
-              <button onClick={() => removeActivity(act.id)}>Deletar</button>
-            </div>
-          ))}
-        </div> */}
       </Modal>
     </div>
   );
