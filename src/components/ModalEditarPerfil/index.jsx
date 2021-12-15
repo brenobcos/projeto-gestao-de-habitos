@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Modal } from "antd";
-import Inputs from "../Inputs";
+import { Button, Modal, Form, Input } from "antd";
 
-function ModalEditarPerfil() {
+function ModalEditarPerfil({ user }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -17,16 +16,46 @@ function ModalEditarPerfil() {
     setIsModalVisible(false);
   };
 
+  const onFinish = (data) => {
+    console.log("Success:", data);
+    // api.patch(`/user/${user}`, data).then((response) => {
+    //   console.log(response);
+    //   toast.success("Alteração realizada com sucesso");
+    // });
+  };
+
   return (
-    <Modal
-      title="Alterar Perfil"
-      visible={isModalVisible}
-      onOk={handleOk}
-      onCancel={handleCancel}
-    >
-      <Inputs filled text="Nome do cidadao" label="Nome" />
-      <Inputs filled text="Email do cidadao" label="E-mail" />
-    </Modal>
+    <>
+      <Button onClick={showModal}>Perfil</Button>
+      <Modal
+        title="Alterar Perfil"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Form className="form" onFinish={onFinish}>
+          <Form.Item
+            name="username"
+            label="Nome"
+            initialValue="Nome do cidadao"
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            name="email"
+            label="E-mail"
+            initialValue="Email do cidadao"
+          >
+            <Input type="email" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button htmlType="submit">Enviar</Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+    </>
   );
 }
 
