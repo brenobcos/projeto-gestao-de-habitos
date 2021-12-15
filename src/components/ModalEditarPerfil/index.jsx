@@ -1,7 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Modal, Form, Input } from "antd";
+import api from "../../services/api";
+
+import { toast } from "react-hot-toast";
 
 function ModalEditarPerfil({ user }) {
+  const [userLogged, setUserLogged] = useState(null);
+
+  const { username, email } = userLogged;
+
+  useEffect(() => {
+    api
+      .get(`/users/${user.id}/`)
+      .then((response) => {
+        setUserLogged(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, [user]);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -17,36 +33,35 @@ function ModalEditarPerfil({ user }) {
   };
 
   const onFinish = (data) => {
-    console.log("Success:", data);
-    // api.patch(`/user/${user}`, data).then((response) => {
-    //   console.log(response);
-    //   toast.success("Alteração realizada com sucesso");
-    // });
+    api
+      .patch(`/users/${user.id}/`, data, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then(() => {
+        toast.success("Dados atualizados com sucesso!");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <>
       <Button onClick={showModal}>Perfil</Button>
+
       <Modal
         title="Alterar Perfil"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <Form className="form" onFinish={onFinish}>
-          <Form.Item
-            name="username"
-            label="Nome"
-            initialValue="Nome do cidadao"
-          >
+          <Form.Item name="username" label="Nome" initialValue={username}>
             <Input />
           </Form.Item>
 
-          <Form.Item
-            name="email"
-            label="E-mail"
-            initialValue="Email do cidadao"
-          >
+          <Form.Item name="email" label="E-mail" initialValue={email}>
             <Input type="email" />
           </Form.Item>
 
