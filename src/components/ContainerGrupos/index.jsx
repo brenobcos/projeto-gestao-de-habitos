@@ -8,6 +8,7 @@ import { PlusSquareFilled, TeamOutlined } from "@ant-design/icons";
 
 import api from "../../services/api";
 import ButtonEdit from "../ButtonEdit";
+import ModalGroups from "../ModalGrupos";
 
 const ContainerGroups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -57,7 +58,7 @@ const ContainerGroups = () => {
         >
           <TeamOutlined style={{ marginRight: "20px" }} />
           MEUS GRUPOS
-          <PlusSquareFilled style={{ cursor: "pointer", marginLeft: "50px" }} />
+          <ModalGroups />
         </div>
         <div style={{ width: 200 }}>
           <Search

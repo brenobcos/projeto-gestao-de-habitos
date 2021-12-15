@@ -4,6 +4,7 @@ import { Button, Modal, List } from "antd";
 import Search from "antd/lib/transfer/search";
 
 import api from "../../services/api";
+import { PlusSquareFilled } from "@ant-design/icons";
 
 const ModalGroups = () => {
   // MODAL
@@ -45,7 +46,10 @@ const ModalGroups = () => {
 
   return (
     <>
-      <Button onClick={showModal}>Grupos</Button>
+      <PlusSquareFilled
+        onClick={showModal}
+        style={{ cursor: "pointer", marginLeft: "50px" }}
+      />
 
       <Modal
         title="Grupos"

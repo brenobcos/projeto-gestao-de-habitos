@@ -3,13 +3,8 @@ div .ant-list-split .ant-list-item {
   border-bottom: 0;
 }
 
-.ant-pagination-item a {
+div .ant-pagination-item a {
   color: var(--white);
-}
-
-.ant-pagination-item-active:focus-visible a,
-.ant-pagination-item-active:hover a {
-  color: var(--color-primary);
 }
 
 .ant-pagination-item-active a {
