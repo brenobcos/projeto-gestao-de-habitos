@@ -79,7 +79,7 @@ const ContainerGroups = () => {
         }}
         renderItem={(item) => (
           <List.Item key={item.id} style={{ display: "flex" }}>
-            {item.name} <ButtonEdit />
+            {item.name} <ButtonEdit id={item.id} />
           </List.Item>
         )}
       />
