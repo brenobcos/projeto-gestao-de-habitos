@@ -4,12 +4,20 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useCallback, useEffect, useState } from "react";
+import moment from "moment";
+import { DatePicker, Space } from "antd";
 
 const Activity = () => {
   //TOKEN
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
   const decoded = jwt_decode(token);
   const usuario = decoded.user_id;
+
+  //HORÁRIO
+  const [date, setDate] = useState("");
+  const onChange = (date, dateString) => {
+    setDate(dateString);
+  };
 
   //ATIVIDADES - POST
   const schemaAcitivty = yup.object().shape({
@@ -25,7 +33,7 @@ const Activity = () => {
   const addActivity = ({ title }) => {
     const newActivity = {
       title,
-      realization_time: "2021-03-10T15:00:00Z",
+      realization_time: `${date}T15:00:00Z`,
       group: 412,
     };
     api
@@ -91,13 +99,17 @@ const Activity = () => {
     <div>
       <form onSubmit={handleSubmit(addActivity)}>
         {/* {errors.username?.message} */}
-        <input placeholder="Título" {...register("title")} />
+        <input placeholder="Atividade" {...register("title")} />
+        <Space direction="vertical">
+          <DatePicker onChange={onChange} />
+        </Space>
         <button type="submit">Adicionar</button>
       </form>
       <div>
         {activity.map((act) => (
           <div key={act.id}>
             <div>{act.title}</div>
+            <div>{act.realization_time.slice(0, 10)}</div>
             <button onClick={() => removeActivity(act.id)}>Deletar</button>
           </div>
         ))}
