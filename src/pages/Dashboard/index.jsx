@@ -1,11 +1,11 @@
 import Activity from "../../components/Activity";
 import Habits from "../../components/Habits";
-import ModalEditarPerfil from "../../components/ModalEditarPerfil";
 
 import jwt_decode from "jwt-decode";
 import api from "../../services/api";
 
 import { useState, useEffect } from "react";
+import NavigationBar from "../../components/NavigationBar";
 
 const Dashboard = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -27,9 +27,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div>Dashboard</div>
-
-      <ModalEditarPerfil user={user} />
+      <NavigationBar user={user} />
 
       <br></br>
       <Habits />

@@ -20,6 +20,7 @@ export const Title = styled.div`
 `;
 
 export const SubTitle = styled.div`
+  height: 16px;
   font-size: ${(props) => (props.large ? "30px" : "14px")};
   font-weight: 900;
   letter-spacing: ${(props) => (props.large ? "3px" : "1px")};
