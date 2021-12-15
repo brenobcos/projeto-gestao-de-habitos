@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Profile from "../pages/Profile";
 import SignUp from "../pages/SignUp";
+import Groups from "../pages/Groups"
 
 const Routers = () => {
   return (
@@ -18,7 +19,7 @@ const Routers = () => {
         <Login />
       </Route>
       <Route exact path="/dashboard/">
-        <Dashboard />
+        <Groups />
       </Route>
       <Route exact path="/profile/">
         <Profile />
