@@ -53,7 +53,6 @@ const Dashboard = () => {
 
   //HÁBITOS - GET
   const [habits, setHabits] = useState([]);
-  console.log(habits);
 
   const getHabits = useCallback(() => {
     api
