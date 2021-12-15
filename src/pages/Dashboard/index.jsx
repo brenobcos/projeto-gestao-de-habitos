@@ -1,4 +1,3 @@
-
 import Activity from "../../components/Activity";
 import Habits from "../../components/Habits";
 
