@@ -11,14 +11,6 @@ import ButtonRegister from "../../components/ButtonRegister";
 
 import SimpleSlider from "../../components/Slider";
 
-const contentStyle = {
-  height: "90px",
-  color: "#fff",
-  lineHeight: "90px",
-  textAlign: "center",
-  background: "#121212",
-};
-
 const Home = () => {
   const history = useHistory();
 
@@ -30,7 +22,7 @@ const Home = () => {
     <Container>
       <header>
         <Logo />
-        <ButtonContainer style={{ display: "flex" }}>
+        <ButtonContainer>
           <ButtonRegister onClick={() => handleNav("/login")} color={false}>
             ENTRAR
           </ButtonRegister>

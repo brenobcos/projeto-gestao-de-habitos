@@ -3,38 +3,31 @@ import { useCallback, useEffect, useState } from "react";
 import "./style.css";
 
 import { List } from "antd";
-import Search from "antd/lib/transfer/search";
 
 import api from "../../services/api";
-import ModalGroups from "../ModalGrupos";
+import ButtonEdit from "../ButtonEdit";
 import { TeamOutlined } from "@ant-design/icons";
+import ModalHabits from "../ModalHabits";
 
-const ContainerGroups = () => {
+const ContainerHabitos = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
 
-  const [groups, setHabits] = useState([]);
-  const [filterGroups, setFilterGroups] = useState("");
+  const [data, setData] = useState([]);
 
-  const getGroups = useCallback(() => {
+  const getData = useCallback(() => {
     api
-      .get("/groups/subscriptions/", {
+      .get("/habits/personal/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => setHabits(response.data))
+      .then((response) => setData(response.data))
       .catch((err) => console.log(err));
-  }, [setHabits, token]);
+  }, [setData, token]);
 
   useEffect(() => {
-    if (groups.length === 0) {
-      getGroups();
-    }
-  }, [groups.length, getGroups]);
-
-  const groupsFiltered = groups.filter((item) =>
-    item.name.toLowerCase().includes(filterGroups.toLowerCase())
-  );
+    getData();
+  }, [getData]);
 
   return (
     <div style={{ margin: "0 10vw" }}>
@@ -51,34 +44,33 @@ const ContainerGroups = () => {
           style={{
             fontFamily: "Roboto, black, sans-serif",
             fontSize: "24px",
-            color: "var(--color-primary",
+
+            color: "var(--black)",
             fontWeight: "900",
+
+            display: "flex",
+            alignItems: "center",
+
+            marginTop: "50px",
           }}
         >
           <TeamOutlined style={{ marginRight: "20px" }} />
-          MEUS GRUPOS
-          <ModalGroups />
-        </div>
-        <div style={{ width: 200 }}>
-          <Search
-            value={filterGroups}
-            onChange={(e) => setFilterGroups(e.target.value)}
-            placeholder="Nome do grupo"
-          />
+          MEUS HÁBITOS
+          <ModalHabits />
         </div>
       </div>
       <List
         style={{ color: "white", paddingBottom: "50px" }}
         size="small"
-        dataSource={groupsFiltered}
+        dataSource={data}
         pagination={{
           position: "bottom",
           size: "small",
           pageSize: "6",
         }}
-        renderItem={(groupsFiltered) => (
-          <List.Item key={groupsFiltered.id} style={{ display: "flex" }}>
-            {groupsFiltered.name} Editar
+        renderItem={(item) => (
+          <List.Item key={item.id} style={{ display: "flex" }}>
+            {item.title}
           </List.Item>
         )}
       />
@@ -86,4 +78,4 @@ const ContainerGroups = () => {
   );
 };
 
-export default ContainerGroups;
+export default ContainerHabitos;

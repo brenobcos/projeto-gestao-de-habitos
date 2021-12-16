@@ -19,7 +19,7 @@ export default function SimpleSlider() {
     cssEase: "linear",
   };
   return (
-    <div style={{ maxWidth: "300px", margin: "0 auto 50px" }}>
+    <div style={{ maxWidth: "300px", margin: "0 auto 50px", zIndex: "-2" }}>
       <Slider {...settings}>
         <div className="container">
           <img src={glide1} alt="glide1" />

@@ -1,22 +1,22 @@
-import api from '../../services/api'
-import { useCallback, useEffect, useState } from 'react'
-import { Button, Modal, Form, Input, Divider, List } from 'antd'
-import { toast } from 'react-hot-toast'
+import api from "../../services/api";
+import { useCallback, useEffect, useState } from "react";
+import { Button, Modal, Form, Input, Divider, List } from "antd";
+import { toast } from "react-hot-toast";
 
 const Goals = ({ groupId }) => {
   // MODAL
-  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
-    setIsModalVisible(true)
-  }
+    setIsModalVisible(true);
+  };
 
   const handleCancel = () => {
-    setIsModalVisible(false)
-  }
+    setIsModalVisible(false);
+  };
 
   //TOKEN
-  const token = JSON.parse(localStorage.getItem('@RunLikeaDev:token')) || ''
+  const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
 
   const addGoal = ({ title, how_much_achieved, difficulty }) => {
     const newGoal = {
@@ -24,33 +24,33 @@ const Goals = ({ groupId }) => {
       how_much_achieved,
       difficulty,
       achieved: false,
-      group: 1159 //GROUPID AQUI EM TUDO QUE ESTIVER COM 1159
-    }
+      group: 1159, //GROUPID AQUI EM TUDO QUE ESTIVER COM 1159
+    };
 
     api
-      .post('/goals/', newGoal, {
+      .post("/goals/", newGoal, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .then(_ => toast.success('Successfully toasted!'))
+      .then((_) => toast.success("Successfully toasted!"))
       .then(setGoals(getGoals))
-      .catch(err => toast.error('Falha ao criar meta'))
-  }
+      .catch((err) => toast.error("Falha ao criar meta"));
+  };
 
   //GOALS - GET
-  const [goals, setGoals] = useState([])
+  const [goals, setGoals] = useState([]);
 
   const getGoals = useCallback(() => {
     api
       .get(`/goals/?group=1159`, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .then(response => setGoals(response.data.results))
-      .catch(err => console.log(err))
-  }, [setGoals, token])
+      .then((response) => setGoals(response.data.results))
+      .catch((err) => console.log(err));
+  }, [setGoals, token]);
 
   /*  useEffect(() => {
     if (goals.length === 0) {
@@ -61,39 +61,39 @@ const Goals = ({ groupId }) => {
   }, [goals.length, getGoals]) */
 
   //GOALS - DELETE
-  const removeGoal = id => {
+  const removeGoal = (id) => {
     api
       .delete(`/goals/${id}/`, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .then(response => {
-        console.log(response)
-        getGoals()
+      .then((response) => {
+        console.log(response);
+        getGoals();
       })
-      .catch(err => {
-        console.log(err)
-      })
-  }
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   //GOALS - UPDATE
   const updateGoal = (id, achieved) => {
     api
       .patch(`/goals/:${id}/`, achieved, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .then(response => {
-        console.log(response)
-        getGoals()
+      .then((response) => {
+        console.log(response);
+        getGoals();
       })
-      .catch(err => {
-        console.log(err)
-      })
-  }
-  console.log(goals)
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  console.log(goals);
   return (
     <div>
       <Button onClick={showModal}>Modal Metas</Button>
@@ -124,10 +124,10 @@ const Goals = ({ groupId }) => {
           size="small"
           bordered
           dataSource={goals}
-          renderItem={item => (
+          renderItem={(item) => (
             <List.Item
               key={item.id}
-              style={{ display: 'flex', color: 'black' }}
+              style={{ display: "flex", color: "black" }}
             >
               {item.title}
               <Button onClick={() => removeGoal(item.id)}>X</Button>
@@ -136,7 +136,7 @@ const Goals = ({ groupId }) => {
         />
       </Modal>
     </div>
-  )
-}
+  );
+};
 
-export default Goals
+export default Goals;
