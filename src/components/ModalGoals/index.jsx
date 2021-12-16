@@ -1,5 +1,5 @@
 import api from "../../services/api";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Button, Modal, Form, Input, Divider, List } from "antd";
 import { toast } from "react-hot-toast";
 
@@ -52,14 +52,6 @@ const Goals = ({ groupId }) => {
       .catch((err) => console.log(err));
   }, [setGoals, token]);
 
-  /*  useEffect(() => {
-    if (goals.length === 0) {
-      getGoals()
-    } else {
-      console.log('error')
-    }
-  }, [goals.length, getGoals]) */
-
   //GOALS - DELETE
   const removeGoal = (id) => {
     api
@@ -77,23 +69,6 @@ const Goals = ({ groupId }) => {
       });
   };
 
-  //GOALS - UPDATE
-  const updateGoal = (id, achieved) => {
-    api
-      .patch(`/goals/:${id}/`, achieved, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        getGoals();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  console.log(goals);
   return (
     <div>
       <Button onClick={showModal}>Modal Metas</Button>

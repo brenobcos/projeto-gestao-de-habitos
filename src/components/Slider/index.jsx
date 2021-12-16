@@ -18,8 +18,9 @@ export default function SimpleSlider() {
     autoplaySpeed: 3000,
     cssEase: "linear",
   };
+
   return (
-    <div style={{ maxWidth: "300px", margin: "0 auto 50px", zIndex: "-2" }}>
+    <div style={{ maxWidth: "300px", margin: "0 auto 50px" }}>
       <Slider {...settings}>
         <div className="container">
           <img src={glide1} alt="glide1" />

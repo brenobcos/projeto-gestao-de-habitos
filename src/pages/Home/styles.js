@@ -15,6 +15,7 @@ export const Container = styled.div`
     padding: 1rem;
 
     position: sticky;
+    z-index: 2;
     top: 0;
 
     text-align: center;

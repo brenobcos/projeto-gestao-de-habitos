@@ -1,22 +1,33 @@
-import { Button } from "antd";
 import { useHistory } from "react-router-dom";
+import { ButtonContainer } from "../../pages/Home/styles";
+import ButtonRegister from "../ButtonRegister";
 import Logo from "../Logo";
 import ModalEditarPerfil from "../ModalEditarPerfil";
+import { Container } from "./styles";
 
-const style = {
-  display: "flex",
+import { useState, useEffect } from "react";
 
-  width: "100%",
+import jwt_decode from "jwt-decode";
+import api from "../../services/api";
 
-  justifyContent: "space-between",
-  alignItems: "center",
+function NavigationBar() {
+  const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
+  const decoded = jwt_decode(token);
+  const id = decoded.user_id;
 
-  background: "var(--black)",
+  const [userLogged, setUserLogged] = useState(null);
 
-  padding: "10px 10vw",
-};
+  useEffect(() => {
+    api
+      .get(`/users/${id}/`)
+      .then((response) => {
+        setUserLogged(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, [id]);
 
-function NavigationBar({ user }) {
+  const user = { token, decoded, id, ...userLogged };
+
   const history = useHistory();
 
   function Logout() {
@@ -24,11 +35,16 @@ function NavigationBar({ user }) {
     history.push("/");
   }
   return (
-    <div style={style}>
+    <Container>
       <Logo />
-      <ModalEditarPerfil user={user} />
-      <Button onClick={Logout}>Sair</Button>
-    </div>
+
+      <ButtonContainer>
+        <ButtonRegister onClick={Logout} color={false}>
+          SAIR
+        </ButtonRegister>
+        <ModalEditarPerfil user={user} />
+      </ButtonContainer>
+    </Container>
   );
 }
 

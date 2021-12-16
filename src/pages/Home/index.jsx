@@ -10,6 +10,8 @@ import "antd/dist/antd.css";
 import ButtonRegister from "../../components/ButtonRegister";
 
 import SimpleSlider from "../../components/Slider";
+import CardsDesktop from "../../components/CardsDesktop";
+import { useState } from "react";
 
 const Home = () => {
   const history = useHistory();
@@ -17,6 +19,20 @@ const Home = () => {
   const handleNav = (path) => {
     return history.push(path);
   };
+
+  const [showCards, setShowCards] = useState(false);
+
+  window.addEventListener(
+    "resize",
+    function (event) {
+      if (event.currentTarget.innerWidth > 700) {
+        setShowCards(true);
+      } else {
+        setShowCards(false);
+      }
+    },
+    true
+  );
 
   return (
     <Container>
@@ -35,6 +51,7 @@ const Home = () => {
       <div style={{ background: "var(--black)", paddingBottom: 40 }}>
         <img src={homeIMG} alt="Running" />
       </div>
+
       <div
         style={{
           fontFamily: "Roboto, sans-serif",
@@ -48,7 +65,7 @@ const Home = () => {
         COMECE A CORRER SOZINHO OU EM GRUPOS
       </div>
 
-      <SimpleSlider />
+      {showCards ? <CardsDesktop /> : <SimpleSlider />}
       <Footer />
     </Container>
   );

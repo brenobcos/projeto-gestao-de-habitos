@@ -88,7 +88,7 @@ const ModalHabits = () => {
         onClick={showModal}
         style={{
           cursor: "pointer",
-          marginLeft: "40px",
+          marginLeft: "20px",
           color: "var(--color-primary)",
         }}
       />
@@ -124,7 +124,7 @@ const ModalHabits = () => {
           bordered
           dataSource={data}
           renderItem={(item) => (
-            <List.Item style={{ display: "flex" }}>
+            <List.Item key={item.id} style={{ display: "flex" }}>
               <Card>
                 {item.title}
                 <Button onClick={() => removeHabit(item.id)}>X</Button>

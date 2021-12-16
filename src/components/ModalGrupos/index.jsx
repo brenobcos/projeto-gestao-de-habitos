@@ -83,7 +83,6 @@ const ModalGroups = () => {
         },
       })
       .then((response) => SetgroupsInscribeds(response.data))
-      // .then((response) => console.log(response.data))
       .catch((err) => console.log(err));
   }, [SetgroupsInscribeds, token]);
 
@@ -134,7 +133,7 @@ const ModalGroups = () => {
     <>
       <PlusSquareFilled
         onClick={showModal}
-        style={{ cursor: "pointer", marginLeft: "50px" }}
+        style={{ cursor: "pointer", marginLeft: "20px" }}
       />
 
       <Modal
@@ -175,7 +174,7 @@ const ModalGroups = () => {
               pagination={{
                 position: "bottom",
                 size: "small",
-                pageSize: "15",
+                pageSize: "3",
               }}
               renderItem={(item) => (
                 <List.Item key={item.id}>
