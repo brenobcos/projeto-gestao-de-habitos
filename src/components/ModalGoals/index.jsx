@@ -34,7 +34,7 @@ const Goals = ({ groupId }) => {
         }
       })
       .then(_ => toast.success('Successfully toasted!'))
-      .then(getGoals)
+      .then(setGoals(getGoals))
       .catch(err => toast.error('Falha ao criar meta'))
   }
 
@@ -48,7 +48,7 @@ const Goals = ({ groupId }) => {
           Authorization: `Bearer ${token}`
         }
       })
-      .then(response => console.log(response.data.results))
+      .then(response => setGoals(response.data.results))
       .catch(err => console.log(err))
   }, [setGoals, token])
 
@@ -91,7 +91,7 @@ const Goals = ({ groupId }) => {
         console.log(err)
       })
   }
-
+  console.log(goals)
   return (
     <div>
       <Button onClick={showModal}>Modal Metas</Button>
@@ -123,7 +123,10 @@ const Goals = ({ groupId }) => {
           bordered
           dataSource={goals}
           renderItem={item => (
-            <List.Item key={item.id} style={{ display: 'flex' }}>
+            <List.Item
+              key={item.id}
+              style={{ display: 'flex', color: 'black' }}
+            >
               {item.title}
               <Button onClick={() => removeGoal(item.id)}>X</Button>
             </List.Item>
