@@ -12,7 +12,8 @@ import {
   List,
 } from "antd";
 
-const Activity = ({ id }) => {
+const Activity = ({ groupId }) => {
+  console.log(groupId);
   // busca o grupo pelo id e descontroi
   // const {nome, metas, atividades} = group
 
@@ -40,7 +41,7 @@ const Activity = ({ id }) => {
     const newActivity = {
       title,
       realization_time: `${date}T15:00:00Z`,
-      group: 412,
+      group: groupId,
     };
 
     api
@@ -60,28 +61,22 @@ const Activity = ({ id }) => {
 
   const [activity, setActivity] = useState([]);
 
-  const getActivity = useCallback(
-    (groupId) => {
-      api
-        //   .get(`/activities/?group=${groupId}`)
-        .get(`/activities/?group=412`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          setActivity(response.data.results);
-        })
-        .catch((err) => console.log(err));
-    },
-    [setActivity, token]
-  );
+  const getActivity = useCallback(() => {
+    api
+      .get(`/activities/?group=${groupId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setActivity(response.data.results);
+      })
+      .catch((err) => console.log(err));
+  }, [setActivity, token]);
 
   useEffect(() => {
-    if (activity.length === 0) {
-      getActivity();
-    }
-  }, [activity.length, getActivity]);
+    getActivity();
+  }, [getActivity]);
 
   //HÁBITOS - DELETE
   function removeActivity(id) {
@@ -130,7 +125,7 @@ const Activity = ({ id }) => {
           bordered
           dataSource={activity}
           renderItem={(item) => (
-            <List.Item style={{ display: "flex" }}>
+            <List.Item style={{ display: "flex", color: "black" }}>
               {item.title}
               <Button onClick={() => removeActivity(item.id)}>X</Button>
             </List.Item>

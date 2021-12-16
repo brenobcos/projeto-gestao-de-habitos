@@ -5,7 +5,7 @@ import api from "../../services/api";
 import { toast } from "react-hot-toast";
 
 function ModalEditarPerfil({ user }) {
-  const { username, email, id } = user;
+  const { username, email } = user;
 
   // MODAL
   const [isModalVisible, setIsModalVisible] = useState(false);

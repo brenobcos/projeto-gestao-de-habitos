@@ -6,10 +6,10 @@ import { List } from "antd";
 import Search from "antd/lib/transfer/search";
 
 import api from "../../services/api";
-import ButtonEdit from "../ButtonEdit";
 import ModalGroups from "../ModalGrupos";
 import { TeamOutlined } from "@ant-design/icons";
 import Activity from "../ModalActivity";
+import Goals from "../ModalGoals";
 
 const ContainerGroups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -37,10 +37,6 @@ const ContainerGroups = () => {
   const groupsFiltered = groups.filter((item) =>
     item.name.toLowerCase().includes(filterGroups.toLowerCase())
   );
-
-  const clicket = () => {
-    console.log("ola");
-  };
 
   return (
     <div style={{ margin: "0 10vw" }}>
@@ -84,7 +80,8 @@ const ContainerGroups = () => {
         }}
         renderItem={(groupsFiltered) => (
           <List.Item key={groupsFiltered.id} style={{ display: "flex" }}>
-            {groupsFiltered.name} <ButtonEdit id={groupsFiltered.id} />
+            {groupsFiltered.name} <Activity groupId={groupsFiltered.id} />
+            <Goals groupId={groupsFiltered.id} />
           </List.Item>
         )}
       />
