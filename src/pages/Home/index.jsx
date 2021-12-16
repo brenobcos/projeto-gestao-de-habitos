@@ -30,7 +30,7 @@ const Home = () => {
     <Container>
       <header>
         <Logo />
-        <ButtonContainer>
+        <ButtonContainer style={{ display: "flex" }}>
           <ButtonRegister onClick={() => handleNav("/login")} color={false}>
             ENTRAR
           </ButtonRegister>

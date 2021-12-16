@@ -48,12 +48,13 @@ const Groups = () => {
 
   const getGroups = useCallback(() => {
     api
-      .get("/groups/", {
+      .get("/groups/subscriptions/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => SetGroups(response.data.results))
+      .then((response) => SetGroups(response.data))
+      // .then((response) => console.log(response))
       .catch((err) => console.log(err));
   }, [SetGroups, token]);
 

@@ -12,7 +12,6 @@ import Groups from "../../components/Groups";
 import ModalGroups from "../../components/ModalGrupos";
 import ContainerGroups from "../../components/ContainerGrupos";
 
-
 const Dashboard = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
   const decoded = jwt_decode(token);
@@ -89,10 +88,7 @@ const Dashboard = () => {
         <div>Habito6</div>
       </div>
       <br></br>
-      -------------------transformar em modais-----------
-      <Groups />
-      <br></br>
-      Habitos
+      -------------------transformar em modais----------- Habitos
       <Habits />
       <br></br>
       Atividades

@@ -9,4 +9,5 @@ div .ant-pagination-item a {
 
 .ant-pagination-item-active a {
   color: #757bc8;
+  background-color: black;
 }

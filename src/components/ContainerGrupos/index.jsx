@@ -4,12 +4,11 @@ import "./style.css";
 
 import { List } from "antd";
 import Search from "antd/lib/transfer/search";
-import { PlusSquareFilled, TeamOutlined } from "@ant-design/icons";
 
 import api from "../../services/api";
 import ButtonEdit from "../ButtonEdit";
 import ModalGroups from "../ModalGrupos";
-import { useParams } from "react-router";
+import { TeamOutlined } from "@ant-design/icons";
 
 const ContainerGroups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -19,12 +18,12 @@ const ContainerGroups = () => {
 
   const getGroups = useCallback(() => {
     api
-      .get("/groups/", {
+      .get("/groups/subscriptions/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => setHabits(response.data.results))
+      .then((response) => setHabits(response.data))
       .catch((err) => console.log(err));
   }, [setHabits, token]);
 
@@ -39,7 +38,7 @@ const ContainerGroups = () => {
   );
 
   return (
-    <div style={{ color: "var(--white)", margin: "0 10vw" }}>
+    <div style={{ margin: "0 10vw" }}>
       <div
         style={{
           display: "flex",
