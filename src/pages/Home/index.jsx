@@ -40,14 +40,14 @@ const Home = () => {
         </ButtonContainer>
       </header>
 
-      <div style={{ background: "var(--black", paddingBottom: 40 }}>
+      <div style={{ background: "var(--black)", paddingBottom: 40 }}>
         <img src={homeIMG} alt="Running" />
       </div>
       <div
         style={{
           fontFamily: "Roboto, sans-serif",
           fontSize: 24,
-          fontWeight: "black",
+          fontWeight: "900",
           textAlign: "center",
 
           margin: "30px 10vw",
