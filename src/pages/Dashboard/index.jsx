@@ -10,6 +10,7 @@ import Footer from "../../components/footer";
 import Goals from "../../components/ModalGoals";
 import ModalGroups from "../../components/ModalGrupos";
 import ContainerGroups from "../../components/ContainerGrupos";
+import AllGroups from "../../components/AllGroups";
 import ContainerHabitos from "../../components/ContainerHabitos";
 
 const Dashboard = () => {
@@ -32,6 +33,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <AllGroups />
       <NavigationBar user={user} />
       <br></br>
       <div>

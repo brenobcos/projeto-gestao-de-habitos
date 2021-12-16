@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { Button, Modal, List, Divider, Form, Input, Card } from "antd";
+import { Button, Modal, List, Form, Input, Card, Tabs } from "antd";
 import Search from "antd/lib/transfer/search";
 
 import api from "../../services/api";
 import { PlusSquareFilled } from "@ant-design/icons";
-import ModalGrupoDetalhes from "../ModalGrupoDetalhes";
 
 const ModalGroups = () => {
   // MODAL
@@ -18,6 +17,14 @@ const ModalGroups = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  // TABS
+
+  const { TabPane } = Tabs;
+
+  function callback(key) {
+    console.log(key);
+  }
 
   // GROUPS - POST
 
@@ -136,82 +143,77 @@ const ModalGroups = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <Divider orientation="left">Criar Grupo</Divider>
-        <Form className="form" onFinish={createGroup}>
-          <Form.Item name="name" label="Título">
-            <Input placeholder="Nome do Grupo" autoComplete="off" />
-          </Form.Item>
-          <Form.Item name="description" label="Descrição do Grupo">
-            <Input placeholder="Descrição do Grupo" autoComplete="off" />
-          </Form.Item>
-          <Form.Item name="category" label="Categoria">
-            <Input placeholder="Categoria" autoComplete="off" />
-          </Form.Item>
+        <Tabs defaultActiveKey="1" onChange={callback}>
+          <TabPane tab="Criar Grupo" key="1">
+            <Form className="form" onFinish={createGroup}>
+              <Form.Item name="name" label="Título">
+                <Input placeholder="Nome do Grupo" autoComplete="off" />
+              </Form.Item>
+              <Form.Item name="description" label="Descrição do Grupo">
+                <Input placeholder="Descrição do Grupo" autoComplete="off" />
+              </Form.Item>
+              <Form.Item name="category" label="Categoria">
+                <Input placeholder="Categoria" autoComplete="off" />
+              </Form.Item>
 
-          <Button htmlType="submit">Criar Grupo</Button>
-        </Form>
-        <Divider orientation="left">Inscrever-se</Divider>
-        <Search
-          value={filterGroups}
-          onChange={(e) => setFilterGroups(e.target.value)}
-          placeholder="Digite o nome do grupo"
-        />
+              <Button htmlType="submit">Criar Grupo</Button>
+            </Form>
+          </TabPane>
 
-        <List
-          size="small"
-          bordered
-          style={{ color: "var(--black)" }}
-          dataSource={groupsFiltered}
-          pagination={{
-            position: "bottom",
-            size: "small",
-            pageSize: "3",
-          }}
-          renderItem={(item) => (
-            <List.Item key={item.id}>
-              <Card
-                size="small"
-                title={item.name}
-                extra={<ModalGrupoDetalhes />}
-                style={{ width: 300 }}
-              >
-                <p>Descrição: {item.description}</p>
-                <p>Categoria: {item.category}</p>
-                <Button onClick={() => subsUser(item.id)}>Entrar</Button>
-              </Card>
-            </List.Item>
-          )}
-        />
+          <TabPane tab="Inscrever-se" key="2">
+            <Search
+              value={filterGroups}
+              onChange={(e) => setFilterGroups(e.target.value)}
+              placeholder="Digite o nome do grupo"
+            />
 
-        <Divider orientation="left">Sair do grupo</Divider>
-        <Search
-          value={filterGroupsInscribeds}
-          onChange={(e) => setFilterGroupsInscribeds(e.target.value)}
-          placeholder="Digite o nome do grupo"
-        />
+            <List
+              size="small"
+              bordered
+              style={{ color: "var(--black)" }}
+              dataSource={groupsFiltered}
+              pagination={{
+                position: "bottom",
+                size: "small",
+                pageSize: "15",
+              }}
+              renderItem={(item) => (
+                <List.Item key={item.id}>
+                  <Card size="small" title={item.name} style={{ width: 300 }}>
+                    <p>Descrição: {item.description}</p>
+                    <p>Categoria: {item.category}</p>
+                    <Button onClick={() => subsUser(item.id)}>Entrar</Button>
+                  </Card>
+                </List.Item>
+              )}
+            />
+          </TabPane>
+          <TabPane tab="Sair do grupo" key="3">
+            <Search
+              value={filterGroupsInscribeds}
+              onChange={(e) => setFilterGroupsInscribeds(e.target.value)}
+              placeholder="Digite o nome do grupo"
+            />
 
-        <List
-          style={{ color: "white", paddingBottom: "50px" }}
-          size="small"
-          dataSource={groupsInscribedsFiltered}
-          pagination={{
-            position: "bottom",
-            size: "small",
-            pageSize: "3",
-          }}
-          renderItem={(item) => (
-            <List.Item key={item.id} style={{ display: "flex" }}>
-              <Card
-                size="small"
-                title={item.name}
-                extra={<ModalGrupoDetalhes />}
-                style={{ width: 300 }}
-              >
-                <Button onClick={() => removeGroup(item.id)}>Sair</Button>
-              </Card>
-            </List.Item>
-          )}
-        />
+            <List
+              style={{ color: "white", paddingBottom: "50px" }}
+              size="small"
+              dataSource={groupsInscribedsFiltered}
+              pagination={{
+                position: "bottom",
+                size: "small",
+                pageSize: "3",
+              }}
+              renderItem={(item) => (
+                <List.Item key={item.id} style={{ display: "flex" }}>
+                  <Card size="small" title={item.name} style={{ width: 300 }}>
+                    <Button onClick={() => removeGroup(item.id)}>Sair</Button>
+                  </Card>
+                </List.Item>
+              )}
+            />
+          </TabPane>
+        </Tabs>
       </Modal>
     </>
   );

@@ -6,7 +6,6 @@ import { List } from "antd";
 import Search from "antd/lib/transfer/search";
 
 import api from "../../services/api";
-import ButtonEdit from "../ButtonEdit";
 import ModalGroups from "../ModalGrupos";
 import { TeamOutlined } from "@ant-design/icons";
 
@@ -77,9 +76,9 @@ const ContainerGroups = () => {
           size: "small",
           pageSize: "6",
         }}
-        renderItem={(item) => (
-          <List.Item key={item.id} style={{ display: "flex" }}>
-            {item.name} <ButtonEdit id={item.id} />
+        renderItem={(groupsFiltered) => (
+          <List.Item key={groupsFiltered.id} style={{ display: "flex" }}>
+            {groupsFiltered.name} Editar
           </List.Item>
         )}
       />
