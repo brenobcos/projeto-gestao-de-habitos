@@ -9,6 +9,7 @@ import api from "../../services/api";
 import ButtonEdit from "../ButtonEdit";
 import ModalGroups from "../ModalGrupos";
 import { TeamOutlined } from "@ant-design/icons";
+import Activity from "../ModalActivity";
 
 const ContainerGroups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -36,6 +37,10 @@ const ContainerGroups = () => {
   const groupsFiltered = groups.filter((item) =>
     item.name.toLowerCase().includes(filterGroups.toLowerCase())
   );
+
+  const clicket = () => {
+    console.log("ola");
+  };
 
   return (
     <div style={{ margin: "0 10vw" }}>
