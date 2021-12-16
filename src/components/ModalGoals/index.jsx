@@ -52,11 +52,13 @@ const Goals = ({ groupId }) => {
       .catch(err => console.log(err))
   }, [setGoals, token])
 
-  useEffect(() => {
+  /*  useEffect(() => {
     if (goals.length === 0) {
       getGoals()
+    } else {
+      console.log('error')
     }
-  }, [goals.length, getGoals])
+  }, [goals.length, getGoals]) */
 
   //GOALS - DELETE
   const removeGoal = id => {
