@@ -1,5 +1,4 @@
 import api from "../../services/api";
-import jwt_decode from "jwt-decode";
 
 import { useCallback, useEffect, useState } from "react";
 import { Button, Modal, Form, Input, Divider, List } from "antd";
@@ -18,8 +17,6 @@ const Goals = ({ id }) => {
 
   //TOKEN
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
-  const decoded = jwt_decode(token);
-  const usuario = decoded.user_id;
 
   const addGoal = ({
     title,

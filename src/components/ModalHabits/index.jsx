@@ -2,9 +2,10 @@ import api from "../../services/api";
 import jwt_decode from "jwt-decode";
 import { useCallback, useEffect, useState } from "react";
 
-import { Button, Modal, Form, Input, Divider, List } from "antd";
+import { Button, Modal, Form, Input, Divider, List, Card } from "antd";
+import { PlusSquareFilled } from "@ant-design/icons";
 
-const Habits = () => {
+const ModalHabits = () => {
   // MODAL
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -41,7 +42,6 @@ const Habits = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         getData();
       })
       .catch((err) => console.log(err));
@@ -49,7 +49,6 @@ const Habits = () => {
 
   //HÁBITOS - GET
   const [data, setData] = useState([]);
-  console.log(data);
 
   const getData = useCallback(() => {
     api
@@ -85,7 +84,14 @@ const Habits = () => {
   }
   return (
     <div>
-      <Button onClick={showModal}>Modal habitos</Button>
+      <PlusSquareFilled
+        onClick={showModal}
+        style={{
+          cursor: "pointer",
+          marginLeft: "40px",
+          color: "var(--color-primary)",
+        }}
+      />
 
       <Modal
         title="Hábitos"
@@ -114,12 +120,15 @@ const Habits = () => {
 
         <List
           size="small"
+          style={{ color: "var(--black)" }}
           bordered
           dataSource={data}
           renderItem={(item) => (
             <List.Item style={{ display: "flex" }}>
-              {item.title}
-              <Button onClick={() => removeHabit(item.id)}>X</Button>
+              <Card>
+                {item.title}
+                <Button onClick={() => removeHabit(item.id)}>X</Button>
+              </Card>
             </List.Item>
           )}
         />
@@ -128,4 +137,4 @@ const Habits = () => {
   );
 };
 
-export default Habits;
+export default ModalHabits;

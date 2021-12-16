@@ -61,7 +61,8 @@ const ModalGroups = () => {
 
   useEffect(() => {
     getGroups();
-  }, [groups]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //GROUPS INSCRIBEDS - GET
   const [groupsInscribeds, SetgroupsInscribeds] = useState([]);
@@ -85,7 +86,8 @@ const ModalGroups = () => {
 
   useEffect(() => {
     getGroupsInscrebeds();
-  }, [groupsInscribeds]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //DELETE
   const removeGroup = (id) => {
@@ -119,29 +121,6 @@ const ModalGroups = () => {
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  //Filters Search
-  const [listGroup, setListGroup] = useState([]);
-  const searchGroup = (name) => {
-    api
-      .get(`/groups/${name}`)
-      .then((response) => setListGroup(response.data))
-      .catch(
-        (err) => {
-          console.log(err);
-        },
-        [setListGroup]
-      );
-    return (
-      <div>
-        {listGroup.map((group) => (
-          <div key={group.id}>
-            <div>{group.name}</div>
-          </div>
-        ))}
-      </div>
-    );
   };
 
   return (
@@ -189,7 +168,7 @@ const ModalGroups = () => {
             pageSize: "3",
           }}
           renderItem={(item) => (
-            <List.Item key={item.id} style={{ display: "flex" }}>
+            <List.Item key={item.id}>
               <Card
                 size="small"
                 title={item.name}

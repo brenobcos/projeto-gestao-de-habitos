@@ -10,7 +10,7 @@ const SignUp = () => {
 
   const submitUser = ({ username, email, password }) => {
     const user = { username, email, password };
-    console.log(user);
+
     api
       .post("/users/", user)
       .then((res) => {
