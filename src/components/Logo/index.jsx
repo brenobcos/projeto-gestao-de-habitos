@@ -2,7 +2,7 @@ import { Title, SubTitle } from "./styles";
 
 const Logo = ({ white, large }) => {
   return (
-    <div>
+    <div style={{ marginBottom: "10px" }}>
       <Title white={white} large={large}>
         RUN
       </Title>

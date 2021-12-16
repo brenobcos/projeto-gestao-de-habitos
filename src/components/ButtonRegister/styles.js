@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.button`
   min-width: min-content;
@@ -11,12 +11,14 @@ export const Container = styled.button`
   font-size: calc(10px + 1vh);
   font-weight: 600;
   border: none;
-  background: ${props =>
-    props.color ? 'var(--color-primary)' : 'var(--black)'};
-  color: ${props => (props.color ? 'var(--black)' : 'var(--white)')};
+  background: ${(props) =>
+    props.color ? "var(--color-primary)" : "var(--black)"};
+  color: ${(props) => (props.color ? "var(--black)" : "var(--white)")};
   margin: 3px;
+
+  width: 120px;
 
   :hover {
     cursor: pointer;
   }
-`
+`;

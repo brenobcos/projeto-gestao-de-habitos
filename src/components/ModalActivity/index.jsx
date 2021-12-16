@@ -12,7 +12,10 @@ import {
   List,
 } from "antd";
 
-const Activity = () => {
+const Activity = ({ id }) => {
+  // busca o grupo pelo id e descontroi
+  // const {nome, metas, atividades} = group
+
   //TOKEN
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
 

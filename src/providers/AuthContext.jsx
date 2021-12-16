@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
 import api from "../services/api";
-import { toast } from "react-hot-toast";
 
 const AuthContext = createContext({});
 
@@ -17,8 +16,6 @@ const AuthProvider = ({ children }) => {
 
   const signIn = async (data) => {
     await api.post("/sessions/", data).then((response) => {
-      console.log(response);
-      toast.success("Login realizado com sucesso");
       localStorage.setItem(
         "@RunLikeaDev:token",
         JSON.stringify(response.data.access)

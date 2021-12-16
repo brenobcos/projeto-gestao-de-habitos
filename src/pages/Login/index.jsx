@@ -1,9 +1,7 @@
 import { useAuth } from "../../providers/AuthContext";
 
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { yupResolver } from "@hookform/resolvers/yup";
+
 import { useHistory, Redirect } from "react-router-dom";
 
 import Logo from "../../components/Logo";
@@ -11,19 +9,6 @@ import { Button, Input, Form } from "antd";
 
 const Login = () => {
   const history = useHistory();
-
-  const schema = yup.object().shape({
-    username: yup.string().required("Insira seu username"),
-    password: yup.string().required("Senha Obrigatória"),
-  });
-
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
 
   const { signIn } = useAuth();
 
@@ -84,7 +69,7 @@ const Login = () => {
             }}
           >
             <Form.Item name="username" label="Usuário">
-              <Input placeholder="Usuário" />
+              <Input placeholder="Usuário" autoComplete="off" />
             </Form.Item>
 
             <Form.Item name="password" label="Senha">
@@ -95,8 +80,8 @@ const Login = () => {
           </Form>
           Ainda não é registrado?
           <div
-            onClick={() => history.push("/registration")}
-            style={{ cursor: "pointer" }}
+            onClick={() => history.push("/signup")}
+            style={{ cursor: "pointer", textDecoration: "underline" }}
           >
             Crie uma conta
           </div>

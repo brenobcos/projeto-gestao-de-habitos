@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -49,36 +49,20 @@ export const Container = styled.div`
       margin: 2px;
     }
   }
-`
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: column;
 
   @media screen and (min-width: 750px) {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     align-content: center;
+    margin-top: 50px;
 
     button {
       margin-left: 25px;
     }
   }
-`
-
-export const GlideContainer = styled.div`
-  margin: 0 15px;
-`
-
-export const Glide = styled.div`
-  text-align: center;
-
-  h4 {
-    font-size: calc(1rem + 0.5vh);
-  }
-  img {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-`
+`;
