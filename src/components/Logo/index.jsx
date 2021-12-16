@@ -1,16 +1,16 @@
-import { Container } from './styles'
+import { Title, SubTitle } from "./styles";
 
-const Logo = () => {
+const Logo = ({ white, large }) => {
   return (
-    <Container>
-      <div>
-        <h1>R</h1>
-        <h1>U</h1>
-        <h1>N</h1>
-      </div>
-      <p>LIKE A DEV</p>
-    </Container>
-  )
-}
+    <div style={{ marginBottom: "10px" }}>
+      <Title white={white} large={large}>
+        RUN
+      </Title>
+      <SubTitle white={white} large={large}>
+        LIKE A DEV
+      </SubTitle>
+    </div>
+  );
+};
 
-export default Logo
+export default Logo;

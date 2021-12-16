@@ -1,37 +1,29 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 8rem;
-  height: 5rem;
-  background-color: var(--black);
-  color: var(--white);
-  text-align: center;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
+// passar props white para quando o fundo da página for branco
+// e passar a props large para o logo no footer
 
-  div {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    margin-top: 20px;
-  }
+export const Title = styled.div`
+  width: ${(props) => (props.large ? "180px" : "80px")};
+  height: ${(props) => (props.large ? "65px" : "30px")};
 
-  h1 {
-    width: 100%;
-    background-color: var(--white);
-    color: var(--black);
-    font-size: 36px;
-    margin-bottom: 0;
-  }
+  line-height: 0.9;
 
-  p {
-    margin-bottom: 10px;
-    width: 90%;
-    text-align-last: justify;
-    font-weight: 600;
-  }
-`
+  background-color: ${(props) =>
+    props.white ? "var(--black)" : "var(--white)"};
+  color: ${(props) => (props.white ? "var(--white)" : "var(--black)")};
+
+  font-size: ${(props) => (props.large ? "75px" : "34px")};
+  font-family: "Roboto";
+  font-weight: 600;
+  letter-spacing: ${(props) => (props.large ? "14px" : "6px")};
+`;
+
+export const SubTitle = styled.div`
+  height: 16px;
+  font-size: ${(props) => (props.large ? "30px" : "14px")};
+  font-weight: 900;
+  letter-spacing: ${(props) => (props.large ? "3px" : "1px")};
+
+  color: ${(props) => (props.white ? "var(--black)" : "var(--white)")};
+`;

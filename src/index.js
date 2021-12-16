@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 
-import Providers from './providers/index'
+import Providers from "./providers/index";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,5 +13,5 @@ ReactDOM.render(
       </Providers>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);
