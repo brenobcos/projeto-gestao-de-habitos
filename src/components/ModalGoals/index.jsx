@@ -1,5 +1,5 @@
 import api from "../../services/api";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button, Modal, Form, Input, Divider, List } from "antd";
 import { toast } from "react-hot-toast";
 
@@ -24,7 +24,7 @@ const Goals = ({ groupId }) => {
       how_much_achieved,
       difficulty,
       achieved: false,
-      group: 1159, //GROUPID AQUI EM TUDO QUE ESTIVER COM 1159
+      group: groupId, //GROUPID AQUI EM TUDO QUE ESTIVER COM 1159
     };
 
     api
@@ -34,7 +34,7 @@ const Goals = ({ groupId }) => {
         },
       })
       .then((_) => toast.success("Successfully toasted!"))
-      .then(setGoals(getGoals))
+      .then(getGoals)
       .catch((err) => toast.error("Falha ao criar meta"));
   };
 
@@ -43,7 +43,7 @@ const Goals = ({ groupId }) => {
 
   const getGoals = useCallback(() => {
     api
-      .get(`/goals/?group=1159`, {
+      .get(`/goals/?group=${groupId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,6 +51,10 @@ const Goals = ({ groupId }) => {
       .then((response) => setGoals(response.data.results))
       .catch((err) => console.log(err));
   }, [setGoals, token]);
+
+  useEffect(() => {
+    getGoals();
+  }, [getGoals]);
 
   //GOALS - DELETE
   const removeGoal = (id) => {

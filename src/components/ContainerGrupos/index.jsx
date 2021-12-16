@@ -8,6 +8,8 @@ import Search from "antd/lib/transfer/search";
 import api from "../../services/api";
 import ModalGroups from "../ModalGrupos";
 import { TeamOutlined } from "@ant-design/icons";
+import Activity from "../ModalActivity";
+import Goals from "../ModalGoals";
 
 const ContainerGroups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
@@ -104,11 +106,28 @@ const ContainerGroups = () => {
               key={groupsFiltered.id}
               style={{ display: "flex" }}
             >
-              {groupsFiltered.name}
+              {groupsFiltered.name} <Activity groupId={groupsFiltered.id} />{" "}
+              <Goals groupId={groupsFiltered.id} />
             </List.Item>
           )}
         />
       </div>
+      {/* <List
+        style={{ color: "white", paddingBottom: "50px" }}
+        size="small"
+        dataSource={groupsFiltered}
+        pagination={{
+          position: "bottom",
+          size: "small",
+          pageSize: "6",
+        }}
+        renderItem={(groupsFiltered) => (
+          <List.Item key={groupsFiltered.id} style={{ display: "flex" }}>
+            {groupsFiltered.name} <Activity groupId={groupsFiltered.id} />
+            <Goals groupId={groupsFiltered.id} />
+          </List.Item>
+        )} */}
+      {/* /> */}
     </div>
   );
 };
