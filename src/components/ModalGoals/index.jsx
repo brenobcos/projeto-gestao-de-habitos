@@ -1,12 +1,10 @@
 import api from "../../services/api";
 import jwt_decode from "jwt-decode";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+
 import { useCallback, useEffect, useState } from "react";
 import { Button, Modal, Form, Input, Divider, List } from "antd";
 
-const Goals = () => {
+const Goals = ({ id }) => {
   // MODAL
   const [isModalVisible, setIsModalVisible] = useState(false);
 

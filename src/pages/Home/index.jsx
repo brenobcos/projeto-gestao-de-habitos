@@ -1,17 +1,15 @@
 import Logo from "../../components/Logo";
-import { ButtonContainer, Container, Glide, GlideContainer } from "./styles";
+import { ButtonContainer, Container } from "./styles";
 import { useHistory } from "react-router";
 import homeIMG from "../../assets/fotoHome.png";
-import glide1 from "../../assets/glider1.png";
-import glide2 from "../../assets/glider2.png";
-import glide3 from "../../assets/glider3.png";
-import glide4 from "../../assets/glider4.png";
 
 import Footer from "../../components/footer";
 
 import "antd/dist/antd.css";
-import { Carousel } from "antd";
+
 import ButtonRegister from "../../components/ButtonRegister";
+
+import SimpleSlider from "../../components/Slider";
 
 const contentStyle = {
   height: "90px",
@@ -42,56 +40,23 @@ const Home = () => {
         </ButtonContainer>
       </header>
 
-      <div>
+      <div style={{ background: "var(--black", paddingBottom: 40 }}>
         <img src={homeIMG} alt="Running" />
       </div>
+      <div
+        style={{
+          fontFamily: "Roboto, sans-serif",
+          fontSize: 24,
+          fontWeight: "black",
+          textAlign: "center",
 
-      <Carousel autoplay>
-        <Glide>
-          <h3 style={contentStyle}></h3>
-          <GlideContainer>
-            <img src={glide1} alt="" />
-            <h4>Crie atividades a serem cumpridas</h4>
-            <p>
-              Faça seu planejamento para correr ainda mais longe. Por meio de
-              pequenas atividades diária, vá muito mais longe!
-            </p>
-          </GlideContainer>
-        </Glide>
-        <Glide>
-          <h3 style={contentStyle}></h3>
-          <GlideContainer>
-            <img src={glide2} alt="" />
-            <h4>Desenvolva hábitos saudáveis</h4>
-            <p>
-              Comece o dia com uma boa atividade física, coma melhor, descanse,
-              durma e seja mais saudável!
-            </p>
-          </GlideContainer>
-        </Glide>
-        <Glide>
-          <h3 style={contentStyle}></h3>
-          <GlideContainer>
-            <img src={glide3} alt="" />
-            <h4>Participe de grupos de corrida</h4>
-            <p>
-              Para ajudar você a ir ainda mais longe, participe dos nossos
-              grupos de corrida. Encontre pessoas com o seu perfil e participe!
-            </p>
-          </GlideContainer>
-        </Glide>
-        <Glide>
-          <h3 style={contentStyle}></h3>
-          <GlideContainer>
-            <img src={glide4} alt="" />
-            <h4>Defina metas para o seu grupo</h4>
-            <p>
-              Além das atividades diárias, você também pode definir metas com o
-              seu grupo de corrida. Nada como ganhar uma motivação extra, certo?
-            </p>
-          </GlideContainer>
-        </Glide>
-      </Carousel>
+          margin: "30px 10vw",
+        }}
+      >
+        COMECE A CORRER SOZINHO OU EM GRUPOS
+      </div>
+
+      <SimpleSlider />
       <Footer />
     </Container>
   );

@@ -9,6 +9,7 @@ import { PlusSquareFilled, TeamOutlined } from "@ant-design/icons";
 import api from "../../services/api";
 import ButtonEdit from "../ButtonEdit";
 import ModalGroups from "../ModalGrupos";
+import { useParams } from "react-router";
 
 const ContainerGroups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
