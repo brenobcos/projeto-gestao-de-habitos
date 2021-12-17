@@ -5,7 +5,7 @@ import api from "../../services/api";
 import { toast } from "react-hot-toast";
 import ButtonRegister from "../ButtonRegister";
 
-function ModalEditarPerfil({ user }) {
+function ModalEditProfile({ user }) {
   const { username, email } = user;
 
   // MODAL
@@ -65,4 +65,4 @@ function ModalEditarPerfil({ user }) {
   );
 }
 
-export default ModalEditarPerfil;
+export default ModalEditProfile;

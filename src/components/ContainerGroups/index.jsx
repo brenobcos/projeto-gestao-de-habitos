@@ -6,15 +6,14 @@ import { List } from "antd";
 import Search from "antd/lib/transfer/search";
 
 import api from "../../services/api";
-import ModalGroups from "../ModalGrupos";
+import ModalGroups from "../ModalGroups";
 import { TeamOutlined } from "@ant-design/icons";
-import Activity from "../ModalActivity";
-import Goals from "../ModalGoals";
+import ModalEditGroup from "../ModalEditGroup";
 
 const ContainerGroups = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
 
-  const [groups, setHabits] = useState([]);
+  const [groups, setGroups] = useState([]);
   const [filterGroups, setFilterGroups] = useState("");
 
   const getGroups = useCallback(() => {
@@ -24,15 +23,14 @@ const ContainerGroups = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => setHabits(response.data))
+      .then((response) => setGroups(response.data))
       .catch((err) => console.log(err));
-  }, [setHabits, token]);
+  }, [setGroups, token]);
 
   useEffect(() => {
-    if (groups.length === 0) {
-      getGroups();
-    }
-  }, [groups.length, getGroups]);
+    getGroups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [groups]);
 
   const groupsFiltered = groups.filter((item) =>
     item.name.toLowerCase().includes(filterGroups.toLowerCase())
@@ -90,44 +88,30 @@ const ContainerGroups = () => {
             size: "small",
             pageSize: "6",
           }}
-          // grid={{
-          //   gutter: 16,
-          //   xs: 1,
-          //   sm: 2,
-          //   md: 4,
-          //   lg: 4,
-          //   xl: 6,
-          //   xxl: 3,
-          // }}
-          grid={{ gutter: 16, column: 2 }}
+          grid={{
+            gutter: 16,
+            xs: 1,
+            sm: 2,
+            md: 4,
+            lg: 4,
+            xl: 6,
+            xxl: 3,
+          }}
           renderItem={(groupsFiltered) => (
             <List.Item
               className="listBgBlack"
               key={groupsFiltered.id}
               style={{ display: "flex" }}
             >
-              {groupsFiltered.name} <Activity groupId={groupsFiltered.id} />{" "}
-              <Goals groupId={groupsFiltered.id} />
+              {groupsFiltered.name}
+              <ModalEditGroup
+                groupId={groupsFiltered.id}
+                name={groupsFiltered.name}
+              />
             </List.Item>
           )}
         />
       </div>
-      {/* <List
-        style={{ color: "white", paddingBottom: "50px" }}
-        size="small"
-        dataSource={groupsFiltered}
-        pagination={{
-          position: "bottom",
-          size: "small",
-          pageSize: "6",
-        }}
-        renderItem={(groupsFiltered) => (
-          <List.Item key={groupsFiltered.id} style={{ display: "flex" }}>
-            {groupsFiltered.name} <Activity groupId={groupsFiltered.id} />
-            <Goals groupId={groupsFiltered.id} />
-          </List.Item>
-        )} */}
-      {/* /> */}
     </div>
   );
 };

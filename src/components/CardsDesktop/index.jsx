@@ -7,8 +7,17 @@ import glide4 from "../../assets/glider4.png";
 
 export default function CardsDesktop() {
   return (
-    <div style={{ maxWidth: "300px", margin: "0 auto 50px" }}>
-      <div className="container">
+    <div
+      style={{
+        display: "flex",
+        maxWidth: 650,
+        flexWrap: "wrap",
+        margin: "0 auto 50px",
+      }}
+    >
+      <div
+        style={{ maxWidth: "300px", marginRight: "50px", marginBottom: "30px" }}
+      >
         <img src={glide1} alt="glide1" />
         <h3>Crie atividades a serem cumpridas</h3>
         <p>
@@ -16,7 +25,7 @@ export default function CardsDesktop() {
           pequenas atividades diária, vá muito mais longe!
         </p>
       </div>
-      <div>
+      <div style={{ maxWidth: "300px", marginBottom: "30px" }}>
         <img src={glide2} alt="glide2" />
         <h3>Desenvolva hábitos saudáveis</h3>
         <p>
@@ -24,7 +33,7 @@ export default function CardsDesktop() {
           durma e seja mais saudável!
         </p>
       </div>
-      <div>
+      <div style={{ maxWidth: "300px", marginRight: "50px" }}>
         <img src={glide3} alt="glide3" />
         <h3>Participe de grupos de corrida</h3>
         <p>
@@ -32,7 +41,7 @@ export default function CardsDesktop() {
           corrida. Encontre pessoas com o seu perfil e participe!
         </p>
       </div>
-      <div>
+      <div style={{ maxWidth: "300px" }}>
         <img src={glide4} alt="glide4" />
         <h3>Defina metas para o seu grupo</h3>
         <p>

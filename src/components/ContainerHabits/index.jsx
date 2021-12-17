@@ -10,7 +10,7 @@ import { TeamOutlined } from "@ant-design/icons";
 
 import ModalHabits from "../ModalHabits";
 
-const ContainerHabitos = () => {
+const ContainerHabits = () => {
   const token = JSON.parse(localStorage.getItem("@RunLikeaDev:token")) || "";
 
   const [data, setData] = useState([]);
@@ -28,7 +28,8 @@ const ContainerHabitos = () => {
 
   useEffect(() => {
     getData();
-  }, [getData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
     <div
@@ -77,16 +78,15 @@ const ContainerHabitos = () => {
             size: "small",
             pageSize: "6",
           }}
-          // grid={{
-          //   gutter: 16,
-          //   xs: 1,
-          //   sm: 2,
-          //   md: 4,
-          //   lg: 4,
-          //   xl: 6,
-          //   xxl: 3,
-          // }}
-          grid={{ gutter: 16, column: 2 }}
+          grid={{
+            gutter: 16,
+            xs: 1,
+            sm: 2,
+            md: 4,
+            lg: 4,
+            xl: 6,
+            xxl: 3,
+          }}
           renderItem={(item) => (
             <List.Item
               className="listBgWhite"
@@ -102,4 +102,4 @@ const ContainerHabitos = () => {
   );
 };
 
-export default ContainerHabitos;
+export default ContainerHabits;

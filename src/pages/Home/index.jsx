@@ -3,7 +3,7 @@ import { ButtonContainer, Container } from "./styles";
 import { useHistory } from "react-router";
 import homeIMG from "../../assets/fotoHome.png";
 
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 
 import "antd/dist/antd.css";
 
@@ -20,15 +20,15 @@ const Home = () => {
     return history.push(path);
   };
 
-  const [showCards, setShowCards] = useState(false);
+  const [desktop, setDesktop] = useState(false);
 
   window.addEventListener(
     "resize",
     function (event) {
       if (event.currentTarget.innerWidth > 700) {
-        setShowCards(true);
+        setDesktop(true);
       } else {
-        setShowCards(false);
+        setDesktop(false);
       }
     },
     true
@@ -39,10 +39,10 @@ const Home = () => {
       <header>
         <Logo />
         <ButtonContainer>
-          <ButtonRegister onClick={() => handleNav("/login")} color={false}>
+          <ButtonRegister onClick={() => handleNav("/login")} isColored={false}>
             ENTRAR
           </ButtonRegister>
-          <ButtonRegister onClick={() => handleNav("/signup")} color={true}>
+          <ButtonRegister onClick={() => handleNav("/signup")} isColored={true}>
             CADASTRAR
           </ButtonRegister>
         </ButtonContainer>
@@ -65,7 +65,7 @@ const Home = () => {
         COMECE A CORRER SOZINHO OU EM GRUPOS
       </div>
 
-      {showCards ? <CardsDesktop /> : <SimpleSlider />}
+      {desktop ? <CardsDesktop /> : <SimpleSlider />}
       <Footer />
     </Container>
   );

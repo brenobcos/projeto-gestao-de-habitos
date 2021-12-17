@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import { ButtonContainer } from "../../pages/Home/styles";
 import ButtonRegister from "../ButtonRegister";
 import Logo from "../Logo";
-import ModalEditarPerfil from "../ModalEditarPerfil";
+import ModalEditarPerfil from "../ModalEditProfile";
 import { Container } from "./styles";
 
 import { useState, useEffect } from "react";

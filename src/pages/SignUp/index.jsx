@@ -17,8 +17,8 @@ const SignUp = () => {
         console.log(res.data);
         return history.push("/login");
       })
-      .then((_) => toast.success("Successfully toasted!"))
-      .catch((err) => toast.error("This didn't work."));
+      .then((_) => toast.success("Cadastro realizado com sucesso"))
+      .catch((err) => toast.error("Erro ao cadastrar"));
   };
 
   return (

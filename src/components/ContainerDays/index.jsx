@@ -1,4 +1,6 @@
-function ContainerDias() {
+import { CalendarOutlined, FieldTimeOutlined } from "@ant-design/icons";
+
+function ContainerDays() {
   return (
     <div
       style={{
@@ -18,12 +20,15 @@ function ContainerDias() {
             fontWeight: "900",
           }}
         >
+          <CalendarOutlined style={{ marginRight: "5px" }} />
           Hoje
         </div>
-        <div>Correr 10km</div>
-        <div>Ir na academia</div>
-        <div>Comer salada no almoço</div>
-        <div>Tomar 5 litros de água</div>
+        <ul>
+          <li>Correr 10km</li>
+          <li>Ir na academia</li>
+          <li>Comer salada no almoço</li>
+          <li>Tomar 5 litros de água</li>
+        </ul>
       </div>
 
       <div
@@ -39,19 +44,21 @@ function ContainerDias() {
             fontWeight: "900",
           }}
         >
+          <FieldTimeOutlined style={{ marginRight: "5px" }} />
           Amanhã
         </div>
+        <ul>
+          <li>Correr 10km</li>
 
-        <div>Correr 10km</div>
+          <li>Ir na academia</li>
 
-        <div>Ir na academia</div>
+          <li>Comer salada no almoço</li>
 
-        <div>Comer salada no almoço</div>
-
-        <div>Tomar 5 litros de água</div>
+          <li>Tomar 5 litros de água</li>
+        </ul>
       </div>
     </div>
   );
 }
 
-export default ContainerDias;
+export default ContainerDays;

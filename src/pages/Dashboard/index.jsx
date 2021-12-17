@@ -1,19 +1,19 @@
 import NavigationBar from "../../components/NavigationBar";
-import Footer from "../../components/footer";
-import ContainerGroups from "../../components/ContainerGrupos";
-import ContainerHabitos from "../../components/ContainerHabitos";
-import ContainerDias from "../../components/ContainerDias";
+import Footer from "../../components/Footer";
+import ContainerGroups from "../../components/ContainerGroups";
+import ContainerHabits from "../../components/ContainerHabits";
+import ContainerDays from "../../components/ContainerDays";
 
 const Dashboard = () => {
   return (
     <div>
       <NavigationBar />
 
-      <ContainerDias />
+      <ContainerDays />
 
       <ContainerGroups />
 
-      <ContainerHabitos />
+      <ContainerHabits />
 
       <Footer />
     </div>
