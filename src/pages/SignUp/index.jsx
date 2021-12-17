@@ -90,29 +90,6 @@ const SignUp = () => {
         </div>
       </div>
     </>
-
-    // <div>
-    //   <h3>Cadastro</h3>
-
-    //   <form onSubmit={handleSubmit(submitUser)}>
-    //     <input placeholder="Nome de usuario" {...register('username')} />
-    //     {errors.username?.message}
-
-    //     <input placeholder="E-mail" {...register('email')} />
-    //     {errors.email?.message}
-
-    //     <input placeholder="Senha" type="password" {...register('password')} />
-    //     {errors.password?.message}
-
-    //     <input
-    //       placeholder="Confirmar senha"
-    //       type="password"
-    //       {...register('confirmPassword')}
-    //     />
-    //     {errors.confirmPassword?.message}
-    //     <button type="submit">Cadastrar</button>
-    //   </form>
-    // </div>
   );
 };
 
