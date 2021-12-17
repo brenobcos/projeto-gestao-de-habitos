@@ -39,7 +39,7 @@ function NavigationBar() {
       <Logo />
 
       <ButtonContainer>
-        <ButtonRegister onClick={Logout} color={false}>
+        <ButtonRegister onClick={Logout} isColored={false}>
           SAIR
         </ButtonRegister>
         <ModalEditarPerfil user={user} />
