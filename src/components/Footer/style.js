@@ -11,6 +11,11 @@ export const Container = styled.div`
   align-items: center;
 
   padding: 30px 0px;
+
+  @media screen and (min-width: 750px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 `;
 
 export const Titulo = styled.div`

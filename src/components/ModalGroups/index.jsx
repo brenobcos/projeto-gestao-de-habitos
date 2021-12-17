@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
+import { toast } from "react-hot-toast";
+
 import { Button, Modal, List, Form, Input, Card, Tabs } from "antd";
 import Search from "antd/lib/transfer/search";
 
@@ -41,10 +43,10 @@ const ModalGroups = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response.data);
+        toast.success("Criado com sucesso");
         getGroups();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error("Erro ao criar"));
   };
 
   //GROUPS - GET
@@ -82,8 +84,9 @@ const ModalGroups = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => SetgroupsInscribeds(response.data))
-      // .then((response) => console.log(response.data))
+      .then((response) => {
+        SetgroupsInscribeds(response.data);
+      })
       .catch((err) => console.log(err));
   }, [SetgroupsInscribeds, token]);
 
@@ -94,7 +97,7 @@ const ModalGroups = () => {
   useEffect(() => {
     getGroupsInscrebeds();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [groupsInscribeds]);
 
   //DELETE
   const removeGroup = (id) => {
@@ -105,11 +108,8 @@ const ModalGroups = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         getGroups();
-      })
-      .catch((err) => {
-        console.log(err);
+        toast.error("Deletado com sucesso");
       });
   };
 
@@ -122,11 +122,10 @@ const ModalGroups = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+        toast.success("Inscrito com sucesso");
       })
-
       .catch((err) => {
-        console.log(err);
+        toast.error("Já é inscrito");
       });
   };
 
@@ -134,7 +133,7 @@ const ModalGroups = () => {
     <>
       <PlusSquareFilled
         onClick={showModal}
-        style={{ cursor: "pointer", marginLeft: "50px" }}
+        style={{ cursor: "pointer", marginLeft: "20px" }}
       />
 
       <Modal
@@ -175,7 +174,7 @@ const ModalGroups = () => {
               pagination={{
                 position: "bottom",
                 size: "small",
-                pageSize: "15",
+                pageSize: "3",
               }}
               renderItem={(item) => (
                 <List.Item key={item.id}>

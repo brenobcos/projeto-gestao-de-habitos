@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import 'antd/dist/antd.css'
+import "antd/dist/antd.css";
 
 export default createGlobalStyle`
 
@@ -25,54 +25,4 @@ body {
     --white: #FFF ;
     --black: #121212; 
 }
-`
-/* 
-    
-    /*
-    --color-primary-strong: ;
-    --color-secondary: ;
-    --color-secondary-light: ;
-    --color-secondary-strong: ;
-    --gray-100: ;
-    --gray-50: ;
-    --gray-20: #F1F1EF ;
-    --gray-0: ;
-    --negative: ;
-    --warning: ;
-    --success: ;
-    --information: ;
-    */
-
-// body {
-//     font-family: 'Roboto', sans-serif;
-// }
-// `;
-// /*
-//     h1 {
-
-//     }
-//     h2 {
-
-//     }
-//     h3 {
-
-//     }
-//     span {
-
-//     }
-
-//     h1, h2, h3, h4, h5, h6 {
-//         font-family: ;
-//     }
-//     button {
-
-//         cursor: pointer;
-//     }
-//     input {
-
-//     }
-//     a {
-
-//         text-decoration: none;
-//     }
-// `;
+`;

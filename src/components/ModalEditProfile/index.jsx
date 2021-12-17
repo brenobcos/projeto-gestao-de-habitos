@@ -3,8 +3,9 @@ import { Button, Modal, Form, Input } from "antd";
 import api from "../../services/api";
 
 import { toast } from "react-hot-toast";
+import ButtonRegister from "../ButtonRegister";
 
-function ModalEditarPerfil({ user }) {
+function ModalEditProfile({ user }) {
   const { username, email } = user;
 
   // MODAL
@@ -37,8 +38,9 @@ function ModalEditarPerfil({ user }) {
 
   return (
     <>
-      <Button onClick={showModal}>Perfil</Button>
-
+      <ButtonRegister onClick={showModal} color={true}>
+        PERFIL
+      </ButtonRegister>
       <Modal
         title="Alterar Perfil"
         visible={isModalVisible}
@@ -63,4 +65,4 @@ function ModalEditarPerfil({ user }) {
   );
 }
 
-export default ModalEditarPerfil;
+export default ModalEditProfile;
