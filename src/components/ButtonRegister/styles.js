@@ -12,8 +12,8 @@ export const Container = styled.button`
   font-weight: 600;
   border: none;
   background: ${(props) =>
-    props.color ? "var(--color-primary)" : "var(--black)"};
-  color: ${(props) => (props.color ? "var(--black)" : "var(--white)")};
+    props.isColored ? "var(--color-primary)" : "var(--black)"};
+  color: ${(props) => (props.isColored ? "var(--black)" : "var(--white)")};
   margin: 3px;
 
   width: 120px;

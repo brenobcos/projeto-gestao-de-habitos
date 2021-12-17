@@ -10,15 +10,15 @@ const SignUp = () => {
 
   const submitUser = ({ username, email, password }) => {
     const user = { username, email, password };
-    console.log(user);
+
     api
       .post("/users/", user)
       .then((res) => {
         console.log(res.data);
         return history.push("/login");
       })
-      .then((_) => toast.success("Successfully toasted!"))
-      .catch((err) => toast.error("This didn't work."));
+      .then((_) => toast.success("Cadastro realizado com sucesso"))
+      .catch((err) => toast.error("Erro ao cadastrar"));
   };
 
   return (

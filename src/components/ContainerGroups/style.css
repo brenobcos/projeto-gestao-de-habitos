@@ -1,10 +1,11 @@
-div .ant-list-split .ant-list-item {
-  color: var(--white);
-  border-bottom: 0;
+.listBgBlack {
+  color: var(--white) !important;
+  border-bottom: 0 !important;
 }
 
 div .ant-pagination-item a {
   color: var(--white);
+  background-color: black;
 }
 
 .ant-pagination-item-active a {
