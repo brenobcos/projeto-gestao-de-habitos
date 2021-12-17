@@ -38,7 +38,7 @@ function ModalEditProfile({ user }) {
 
   return (
     <>
-      <ButtonRegister onClick={showModal} color={true}>
+      <ButtonRegister onClick={showModal} isColored={true}>
         PERFIL
       </ButtonRegister>
       <Modal
