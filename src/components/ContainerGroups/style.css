@@ -1,0 +1,14 @@
+.listBgBlack {
+  color: var(--white) !important;
+  border-bottom: 0 !important;
+}
+
+div .ant-pagination-item a {
+  color: var(--white);
+  background-color: black;
+}
+
+.ant-pagination-item-active a {
+  color: #757bc8;
+  background-color: black;
+}
